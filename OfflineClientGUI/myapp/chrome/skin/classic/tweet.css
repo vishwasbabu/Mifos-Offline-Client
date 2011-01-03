@@ -1,0 +1,157 @@
+
+body {
+	background-color: #DDD;
+}
+
+.tweetBottomRow {
+	clear: both;
+	height:20px;
+	overflow: hidden;
+	width:99%;
+}
+
+.tweetBox {
+	width:100%;
+}
+
+.tweetText {
+	padding:0;
+	margin:-1;
+	min-height:52px;
+	color: #444;
+}
+
+.tweetTable {
+	border-spacing:0px;
+	margin:0;
+	padding:0;
+	border-collapse:collapse;
+	width:100%;
+}
+
+.tweetText p {
+	padding:0;
+	margin:0;
+	min-height:52px;
+	color: #444;
+}
+
+.tweetMessage {
+	-moz-border-radius: 4px;
+	-moz-box-shadow: #111 0px 1px 3px 1px;
+	background-color:#fff;
+	margin:5px;
+	padding:0;
+}
+
+.tweetAvatar {
+	-moz-border-radius: 4px;
+	-moz-box-shadow: #999 0px 1px 1px 1px;
+	float:left;
+	height:40px;
+	margin:5px 5px 5px 10px;
+	padding:0px;
+	width:40px;
+}
+
+.tweetAvatarColumn {
+	width:40px;
+}
+
+.tweetTextColumn {
+	
+}
+
+.tweetScreenName {
+	color:#222;	
+	font-size:12px;
+	font-family:"Segoe UI", Arial, sans-serif;
+	font-weight:bold;
+}
+
+.tweetContent {
+	color:#444;	
+	font-size:12px;
+	font-family:"Segoe UI", Arial, sans-serif;
+	font-weight:normal;	
+	padding-right:8px;
+}
+
+.tweetContent a {
+	color:#22A;
+	text-decoration: underline;
+}
+
+.tweetReplyTo a {
+	color:#222;	
+	font-size:10px;
+	font-family:"Segoe UI", Arial, sans-serif;
+	font-weight:normal;	
+	padding-right:8px;
+	color:#88A;
+	text-decoration: none;
+}
+
+a:hover.tweetInfo {
+	border-width: 2px;
+	color: #22A;	
+	clear:none;
+	cursor: pointer;
+	font-size: 10px;
+	height: 16px;
+	margin-left:5px;
+	min-height: 16px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+a.tweetInfo {
+	clear:none;
+	color: #666;	
+	font-size: 10px;
+	height: 16px;
+	margin-left:5px;
+	min-height: 16px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.tweetInfo {
+	clear:none;
+	color: #666;
+	font-size: 10px;
+	font-family:"Segoe UI", Arial, sans-serif;
+	height:16px;
+	margin-left:5px;
+	min-height: 16px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.tweetVia {
+	clear:none;
+	color: #666;
+	font-size: 10px;
+	font-family:"Segoe UI", Arial, sans-serif;	
+	height:16px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.tweetIcon {
+	background-color: #fff;	
+	margin:0 2px 0 2px;
+	padding:0;
+	position:relative;
+	top:-2px;
+}
+
+.mark {
+	margin-left:5px;
+	margin-right:-2px;
+}
+
+.marked {
+	margin-left:5px;
+	margin-right:-2px;	
+}
