@@ -1,0 +1,140 @@
+<?xml version='1.0'?>
+<overlay id="toverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+		 
+		 
+<tabpanel id="synced">
+  
+  <box orient="vertical" height="300" >
+
+	   <richlistbox flex="1" >
+		 <richlistboxitem>
+			 <grid id="testgrid">
+			  <columns>
+			   <column width="90"/>
+			   <column width="90"/>
+			   <column width="50"/>
+			   <column width="20"/>
+			   <column width="60"/>
+			   <column width="60"/>
+			   <column width="60"/>
+			  </columns>
+			  <rows id="testrows">
+				<row  flex="1">
+					<label value="Client Name"/>
+					<label value="Disb amt"/>
+					<label value="Inst #"/>
+					<label value="Prn Amt"/>
+					<label value="Int Amt"/>
+					<label value="Prn Amt Paid"/>
+					<label value="Int Amt Paid"/>
+					<label value="A/C Collections"/>
+					<label value="Attn"/>
+				</row>
+				<row  flex="1">
+					<hbox align="center">
+					<image onclick="$('#aaaa').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/icon.collapse.png' width='13' height='13'/>
+					<label value="Group1"/>
+					</hbox>
+					
+				</row>
+				<rows id="aaaa">
+			   <row align="center" id="grp1" flex="1">
+				 <label value="Client1"/>
+				 <label value="9000"/>
+				 <label value="13"/>
+				 <label value="230.0"/>
+				 <label value="30.0"/>
+				 <textbox id="your-name" width="60" value="230.0"/>
+				 <textbox id="your-name" width="60" value="0.0"/>
+				 <textbox id="your-name" width="60" value="30.0"/>
+					<menulist label="attn">
+					  <menupopup>
+						<menuitem label="A"/>
+						<menuitem label="P"/>
+						<menuitem label="LP" selected="true"/>
+						<menuitem label="L"/>
+					  </menupopup>
+					</menulist>
+			   </row>
+			   <row align="center" id="grp1" flex="1">
+				 <label value="Client1"/>
+				 <label value="9000"/>
+				 <label value="13"/>
+				 <label value="230.0"/>
+				 <label value="30.0"/>
+				 <textbox id="your-name"  width="60" value="230.0"/>
+				 <textbox id="your-name"  width="60" value="30.0"/>
+				 <textbox id="your-name" width="60" value="0.0"/>
+				 <menulist label="attn">
+					  <menupopup>
+						<menuitem label="A"/>
+						<menuitem label="P"/>
+						<menuitem label="LP" selected="true"/>
+						<menuitem label="L"/>
+					  </menupopup>
+					</menulist>			   
+				</row>
+				</rows>
+			   <row align="center" flex="1">
+				    <hbox align="center">
+					<image onclick="$('#axa').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/icon.collapse.png' width='13' height='13'/>
+					<label value="Group1"/>
+					</hbox>
+				</row>
+				<rows id="axa">
+			   <row align="center" id="grp2" flex="1">
+				 <label value="Client1"/>
+				 <label value="9000"/>
+				 <label value="13"/>
+				 <label value="230.0"/>
+				 <label value="30.0"/>
+				 <textbox id="your-name" width="60" value="0.0"/>
+				 <textbox id="your-name"  width="60" value="230.0"/>
+				 <textbox id="your-name"  width="60" value="30.0"/>
+					<menulist label="attn">
+					  <menupopup>
+						<menuitem label="A"/>
+						<menuitem label="P"/>
+						<menuitem label="LP" selected="true"/>
+						<menuitem label="L"/>
+					  </menupopup>
+					</menulist>
+			   </row>
+			   <row align="center" id="grp2" flex="1">
+				 <label value="Client1"/>
+				 <label value="9000"/>
+				 <label value="13"/>
+				 <label value="230.0"/>
+				 <label value="30.0"/>
+				 <textbox id="your-name" width="60" value="0.0"/>
+				 <textbox id="your-name"  width="60" value="230.0"/>
+				 <textbox id="your-name"  width="60" value="30.0"/>
+						<menulist label="attn">
+					    <menupopup>
+						<menuitem label="A"/>
+						<menuitem label="P"/>
+						<menuitem label="LP" selected="true"/>
+						<menuitem label="L"/>
+					  </menupopup>
+					</menulist>
+			   </row>
+			   </rows>
+			   <row align="center"  flex="1">
+				 <label value="Group total"/>
+				 <label value="90000"/>
+				 <label/>
+				 <label value="2300.0"/>
+				 <label value="300.0"/>
+				 <label value="2300.0"/>
+				 <label value="3000.0"/>
+				 <label value="0.0"/>
+				<label/>
+			   </row>
+			  </rows>
+			 </grid>
+		  </richlistboxitem>
+		</richlistbox>
+	</box>
+</tabpanel>
+</overlay>
