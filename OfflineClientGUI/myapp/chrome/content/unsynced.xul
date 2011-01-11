@@ -6,7 +6,6 @@
 <tabpanel id="synced">
   
   <box orient="vertical" height="300" >
-
 	   <richlistbox flex="1" >
 		 <richlistboxitem>
 			 <grid id="testgrid">
@@ -36,7 +35,6 @@
 					<image onclick="$('#aaaa').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/icon.collapse.png' width='13' height='13'/>
 					<label value="Group1"/>
 					</hbox>
-					
 				</row>
 				<rows id="aaaa">
 			   <row align="center" id="grp1" flex="1">
@@ -78,8 +76,8 @@
 				</rows>
 			   <row align="center" flex="1">
 				    <hbox align="center">
-					<image onclick="$('#axa').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/icon.collapse.png' width='13' height='13'/>
-					<label value="Group1"/>
+						<image onclick="$('#axa').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/icon.collapse.png' width='13' height='13'/>
+						<label value="Group1"/>
 					</hbox>
 				</row>
 				<rows id="axa">

@@ -121,12 +121,7 @@
     </rows>
   </grid>
 </groupbox>
-
-  
-  
-  </box>
-  
-  
+</box>
   <box orient="vertical" height="300" >
 
 	   <richlistbox flex="1" >

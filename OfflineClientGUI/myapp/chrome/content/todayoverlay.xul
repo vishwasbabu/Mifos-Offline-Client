@@ -4,22 +4,22 @@
 		 
 		 
 <tabpanel id="Today">
- <vbox>
+ <vbox class="todaymainbox">
  <vbox>
 <box align="center"><image onclick="$('#todaygetdata').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/down_icon.gif' width='25' height='25' /><label style="font-size: 15px; padding: 5px;" value="Get data from server"/></box> 
-<hbox id="todaygetdata" height="60" style="background-color: #FFFF99;" >
+<hbox id="todaygetdata" height="60" >
 <box align="center">
         <label value="Date"/>
-		<datepicker type="popup" value="2011-01-01"/>
+		<datepicker id="todaydate" type="popup" value="2011-01-01"/>
         <label value="Loan Officer"/>
-		<menulist label="attn">
-					  <menupopup>
-						<menuitem label="Raja"/>
-						<menuitem label="Thomas"/>
-						<menuitem label="Arun" selected="true"/>
-						<menuitem label="Ayaz"/>
-					  </menupopup>
-					</menulist>	
+			<menulist label="attn">
+				<menupopup>
+					<menuitem label="Raja"/>
+					<menuitem label="Thomas"/>
+					<menuitem label="Arun" selected="true"/>
+					<menuitem label="Ayaz"/>
+				</menupopup>
+			</menulist>	
 
 		<image onclick="alert('need to write action');" src='chrome://myapp/skin/images/extra/download.png' width='36' height='36' />			
 </box>					
@@ -28,257 +28,121 @@
 
 </vbox>
 <hbox>
-  <box orient="vertical" width="150" height="600">
-  <tree id="treeset" height="600">
-	<treecols>
-		<treecol primary="true"  label="LO / Center Name"  width="150" />
-	</treecols>
-	<treechildren flex="1">
-		<treeitem container="true" open="true">
-			<treerow>
-				<treecell class="treecell-indent" label="Rajesh"/>
-			</treerow>
-			<treechildren> 
-				<treeitem>
-					<treerow>
-							<treecell class="treecell-indent" label="Nathan"/>
-				  </treerow>
-				</treeitem>
-			  <treeitem>
-				<treerow>
-				  <treecell class="treecell-indent" label="Samantha"/>
-				</treerow>
-			  </treeitem>
-			  	<treeitem>
-					<treerow>
-							<treecell class="treecell-indent" label="Nathan"/>
-				  </treerow>
-				</treeitem>
-			  <treeitem>
-				<treerow>
-				  <treecell class="treecell-indent" label="Samantha"/>
-				</treerow>
-			  </treeitem>
-			  	<treeitem>
-					<treerow>
-							<treecell class="treecell-indent" label="Nathan"/>
-				  </treerow>
-				</treeitem>
-			  <treeitem>
-				<treerow>
-				  <treecell class="treecell-indent" label="Samantha"/>
-				</treerow>
-			  </treeitem>
-			</treechildren>
-		</treeitem>
-	  <treeitem container="true">
-		<treerow>
-		  <treecell class="treecell-indent" label="Afroz"/>
-		</treerow>
-		<treechildren>
-		  <treeitem>
-			<treerow>
-			  <treecell class="treecell-indent" label="Nathan"/>
-			</treerow> 
-		  </treeitem>
-		  <treeitem>
-			<treerow>
-			  <treecell label="Meatloaf"/>
-			</treerow>
-		  </treeitem>
-		  <treeitem>
-			<treerow>
-			  <treecell label="Meatloaf"/>
-			</treerow>
-		  </treeitem>
-		  <treeitem>
-			<treerow>
-			  <treecell label="Meatloaf"/>
-			</treerow>
-		  </treeitem>
-		  <treeitem>
-			<treerow>
-			  <treecell label="Meatloaf"/>
-			</treerow>
-		  </treeitem>
-		</treechildren>
-	  </treeitem>
-	 </treechildren>
-</tree> 
-
-  
-  </box>
-  <box orient="vertical" height="600" width="700">
-  <box orient="vertical"  width="700">
-  <groupbox>
-  <caption label="Center Details"/>
-  <grid>
-    <columns>
-      <column flex="1"/>
-      <column flex="2"/>
-    </columns>
-    <rows>
-      <row>
-        <label value="Center: Vijayanagar2 "/>
-        <label value="Date of transaction: 27/12/2010"/>
-      </row>
-      <row>
-        <label value="Branch office: Banglore "/>
-        <label value="Mode of payment: Cash"/>
-      </row>
-	  <row>
-        <label value="Loan officer: Sukeshdg K "/>
-        <vbox>
-		<label value="Receipt ID: "/>
-		<label value="Receipt Date: "/>
-		</vbox>
-      </row>
-
-    </rows>
-  </grid>
-</groupbox>
-
-  
-  
-  </box>
-  
-  
-  <box orient="vertical" height="300" >
-
-	   <richlistbox flex="1" >
-		 <richlistboxitem>
-			 <grid id="testgrid">
-			  <columns>
-			   <column width="90"/>
-			   <column width="90"/>
-			   <column width="50"/>
-			   <column width="20"/>
-			   <column width="60"/>
-			   <column width="60"/>
-			   <column width="60"/>
-			  </columns>
-			  <rows id="testrows">
-				<row  flex="1">
-					<label value="Client Name"/>
-					<label value="Disb amt"/>
-					<label value="Inst #"/>
-					<label value="Prn Amt"/>
-					<label value="Int Amt"/>
-					<label value="Prn Amt Paid"/>
-					<label value="Int Amt Paid"/>
-					<label value="A/C Collections"/>
-					<label value="Attn"/>
-				</row>
-				<row  flex="1">
-					<hbox align="center">
-					<image onclick="$('#zz').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/icon.collapse.png' width='13' height='13'/>
-					<label value="Group1"/>
-					</hbox>
-					
-				</row>
-				<rows id="zz">
-			   <row align="center" id="grp1" flex="1">
-				 <label value="Client1"/>
-				 <label value="9000"/>
-				 <label value="13"/>
-				 <label value="230.0"/>
-				 <label value="30.0"/>
-				 <textbox id="your-name" width="60" value="230.0"/>
-				 <textbox id="your-name" width="60" value="0.0"/>
-				 <textbox id="your-name" width="60" value="30.0"/>
-					<menulist label="attn">
-					  <menupopup>
-						<menuitem label="A"/>
-						<menuitem label="P"/>
-						<menuitem label="LP" selected="true"/>
-						<menuitem label="L"/>
-					  </menupopup>
-					</menulist>
-			   </row>
-			   <row align="center" id="grp1" flex="1">
-				 <label value="Client1"/>
-				 <label value="9000"/>
-				 <label value="13"/>
-				 <label value="230.0"/>
-				 <label value="30.0"/>
-				 <textbox id="your-name"  width="60" value="230.0"/>
-				 <textbox id="your-name"  width="60" value="30.0"/>
-				 <textbox id="your-name" width="60" value="0.0"/>
-				 <menulist label="attn">
-					  <menupopup>
-						<menuitem label="A"/>
-						<menuitem label="P"/>
-						<menuitem label="LP" selected="true"/>
-						<menuitem label="L"/>
-					  </menupopup>
-					</menulist>			   
-				</row>
+  <vbox  orient="vertical" width="200" height="500">
+			<grid id="testgrid" maxheight="250" width="800" >
+				  <columns>
+				   <column width="170"/>
+				   <column width="30"/>
+  			      </columns>
+				<rows id="todaylocenter" style="overflow:auto" >
 				</rows>
-			   <row align="center" flex="1">
-				    <hbox align="center">
-					<image onclick="$('#aa').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/icon.collapse.png' width='13' height='13'/>
-					<label value="Group1"/>
-					</hbox>
-				</row>
-				<rows id="aa">
-			   <row align="center" id="grp2" flex="1">
-				 <label value="Client1"/>
-				 <label value="9000"/>
-				 <label value="13"/>
-				 <label value="230.0"/>
-				 <label value="30.0"/>
-				 <textbox id="your-name" width="60" value="0.0"/>
-				 <textbox id="your-name"  width="60" value="230.0"/>
-				 <textbox id="your-name"  width="60" value="30.0"/>
-					<menulist label="attn">
-					  <menupopup>
-						<menuitem label="A"/>
-						<menuitem label="P"/>
-						<menuitem label="LP" selected="true"/>
-						<menuitem label="L"/>
-					  </menupopup>
-					</menulist>
-			   </row>
-			   <row align="center" id="grp2" flex="1">
-				 <label value="Client1"/>
-				 <label value="9000"/>
-				 <label value="13"/>
-				 <label value="230.0"/>
-				 <label value="30.0"/>
-				 <textbox id="your-name" width="60" value="0.0"/>
-				 <textbox id="your-name"  width="60" value="230.0"/>
-				 <textbox id="your-name"  width="60" value="30.0"/>
-						<menulist label="attn">
-					    <menupopup>
-						<menuitem label="A"/>
-						<menuitem label="P"/>
-						<menuitem label="LP" selected="true"/>
-						<menuitem label="L"/>
-					  </menupopup>
-					</menulist>
-			   </row>
-			   </rows>
-			   <row align="center"  flex="1">
-				 <label value="Group total"/>
-				 <label value="90000"/>
-				 <label/>
-				 <label value="2300.0"/>
-				 <label value="300.0"/>
-				 <label value="2300.0"/>
-				 <label value="3000.0"/>
-				 <label value="0.0"/>
-				<label/>
-			   </row>
-			   
-			   
-			  </rows>
-			 </grid>
-		  </richlistboxitem>
-		</richlistbox>
+			</grid>
+  </vbox>
+  
+  <box orient="vertical" height="500" width="800">
+  <box orient="vertical"  width="800">
+		  <groupbox class="todaycollectionrb">
+		  <caption class="h2"  label="Center Details"/>
+		  <grid>
+			<columns>
+			  <column flex="1" width="450"/>
+			  <column flex="2"/>
+			</columns>
+			<rows>
+			  <row>
+					<box align="center"><label class="h1" value="Center Name: "/><label id="centername" value=" Vijayanagar2"/> </box>
+					<box align="center"><label class="h1" value="Date of transaction: "/><datepicker id="todaydate" type="popup" value="2011-01-01"/></box>
+			  </row>
+			  <row>
+				<hbox><label class="h1" value="Loan Officer Name:"/><label value="Sukeshdg K "/></hbox>
+					<hbox align="center"><label class="h1" value="Receipt ID:     "/><textbox value=""/></hbox>
+			  </row>
+			  <row>
+				<box align="center"><label class="h1" value="Mode of payment:  "/>
+						<menulist label="mop">
+						<menupopup>
+							<menuitem label="Cash"/>
+							<menuitem label="Voch"/>
+							<menuitem label="Cq" selected="true"/>
+							<menuitem label="Online"/>
+						</menupopup>
+					</menulist>	
+					</box>
+				<hbox align="center"><label class="h1" value="Receipt Date:          "/><datepicker id="todaydate" type="popup" value="2011-01-01"/></hbox>
+			  </row>
+			</rows>
+			</grid>
+		</groupbox>
+   </box>
+   <separator/>
+   <vbox orient="vertical"  class="todaycollectionrb" >
+			<grid width="800" >
+				  <columns>
+				   <column width="100"/>
+				   <column width="50"/>
+				   <column width="90"/>
+				   <column width="70"/>
+				   <column width="70"/>
+				   <column width="80"/>
+				   <column width="80"/>
+				   <column width="80"/>
+				   <column width="100"/>
+				  </columns>
+						<rows>
+							<row class="todaycollectionhd">
+								<label value="Client Name"/>
+								<label value="Prd"/>
+								<label value="Disb amt"/>
+								<label value="Inst #"/>
+								<label value="Prn Amt"/>
+								<label value="Int Amt"/>
+								<label value="Amt Paid"/>
+								<label value="A/C Collections"/>
+								<label value="Attn"/>
+							</row>
+						</rows>
+			</grid>
+			<grid id="testgrid" maxheight="250" width="800" >
+				  <columns>
+				   <column width="100"/>
+				   <column width="50"/>
+				   <column width="90"/>
+				   <column width="70"/>
+				   <column width="70"/>
+				   <column width="80"/>
+				   <column width="80"/>
+				   <column width="80"/>
+				   <column width="100"/>
+  			      </columns>
+			<rows id="centercollectionsheet" style="overflow:auto" >
+		</rows>
+			</grid>
+			<grid width="800" >
+				  <columns>
+				   <column width="100"/>
+				   <column width="50"/>
+				   <column width="90"/>
+				   <column width="70"/>
+				   <column width="70"/>
+				   <column width="80"/>
+				   <column width="80"/>
+				   <column width="80"/>
+				   <column width="100"/>
+  			      </columns>
+				  <rows id="centercollectionsheettotal" height="30">
+				  </rows>
+			</grid>
+	</vbox>
+	<separator/>
+	<hbox align="right">
+	<box align="center">
+	<box class="syncboxgreen" id="syncbutton" align="center">
+		<label value="Sync to Web"/>
+		<image onclick="alert('need to write action');" src='chrome://myapp/skin/images/extra/icon_sync.png' width='20' height='20' />
 	</box>
-	<hbox>
 	<button label="Reset" />
 	<button label="Save" />
+	</box>
 	</hbox>
   </box>
 </hbox>	   

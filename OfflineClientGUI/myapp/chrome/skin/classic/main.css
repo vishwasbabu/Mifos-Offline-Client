@@ -1,16 +1,119 @@
-treechildren::-moz-tree-checkbox {
-  /* unchecked checkbox treecells. This style MUST come before treechildren::-moz-tree-checkbox(checked) otherwise it won't take effect.  */
-  list-style-image: url("chrome://myapp/skin/images/actions/unchecked.png");
+.todaylo{
+ -moz-border-radius: 1px 1px 1px 1px;
+ background-color: #E0ECF8;
+ font-weight: bold;
+ border:1px solid;
+ border-color:#CEE3F6;
 }
 
-treechildren::-moz-tree-checkbox(checked){
-  /* css for checked cells. cbox-check.gif isn't available in Firefox 1, 2, and 3 on Mac OS X, so you should specify a URL to an image
-     in your extension or elsewhere. */
-  list-style-image: url("chrome://myapp/skin/images/actions/read.png");
+.todayCenter{
+ -moz-border-radius: 1px 1px 1px 1px;
+ background-color: #EFF5FB;
+ cursor:pointer;
+ }
+ 
+ .todaycollectionrb{
+	-moz-border-radius: 4px 4px 4px 4px;
+	border:1px solid;
+	border-color:#D8D8D8;
+	-moz-box-shadow: #cddfea 0px 1px 1px 0px;
+ }
+ 
+ .todaycollectionhd{
+	font-size:13px;
+	border-bottom:1px solid;
+	border-color: #58ACFA;
+	background-color: #E0ECF8;
+	font-weight: bold;
+	font-family:arial;
+ }
+ 
+ .todaygrouphd{
+ }
+ 
+  .todayrow{
+	border-bottom:1px solid ;
+	border-color: #E0ECF8;
+ }
+ 
+  .todaygrouptotal{
+	background-color: #EFF5FB;
+	border-bottom:1px solid ;
+	border-color: #58ACFA;
+ }
+ 
+ 
+ #centercollectionsheettotal{
+ 	font-size:14px;
+	background-color: #E0ECF8;
+	border-top:1px solid ;
+	border-color: #58ACFA;
+ }
+ 
+ #todaygetdata{
+	background-color: #FFFF99;
+	border-top:1px solid ;
+	border-color: #D7DF01;
+  }
+ 
+ 
+  .ibox{
+ 	float:right;
+ }
+ 
+ .loadbox{
+ 	width:100%;
+	height:250px;
+ 	background-image:url(chrome://myapp/skin/images/extra/loading.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+
+ }
+ 
+ 
+ .syncboxgreen{
+	cursor:pointer;
+	background-color: #BEF781;
+	border:1px solid ;
+	border-top:2px solid ;
+	border-color: #000000;
+	-moz-border-radius:4px;
+ }
+
+ .syncboxred{
+	cursor:pointer;
+	background-color: #F5A9A9;
+	border:1px solid ;
+	border-top:2px solid ;
+	border-color: #000000;
+	-moz-border-radius:4px;
+ }
+ 
+ .todaymainbox{
+padding-top:15px;
+padding-bottom:25px;
+padding-right:50px;
+padding-left:50px;
+ 
+ }
+ 
+ 
+ .h1{
+ 	font-size:13px;
+   }
+ .h2{
+ 	font-size:15px;
+   } 
+
+   
+   
+   
+tab {
+  font-size: 15px;
 }
 
-treechildren::-moz-tree-cell-text {
-cursor: pointer;
-}
-
-treechildren::-moz-tree-row(odd)                 { background-color: #EEEEEE; }
+tab[selected="true"] {
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: underline;
+} 

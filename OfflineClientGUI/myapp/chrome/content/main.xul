@@ -8,25 +8,26 @@
 <window 
    id="mainwindow"  
    title="MifosKit" 
-   width="900" 
    height="700" 
    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
    onload="init();"
-  >
-
- 
+   sizemode="maximized">
+   
    <script type="application/javascript" src="chrome://myapp/content/js/jquery-1.4.4.min.js"/>
    <script type="application/javascript" src="chrome://myapp/content/js/main.js"/>
    <script type="application/javascript" src="chrome://myapp/content/js/utils.js"/>
    <script type="application/javascript" src="chrome://myapp/content/js/collectionsheet.js"/>
+   <script type="application/javascript" src="chrome://myapp/content/js/centerCollectionSheet.js"/>
+   <script type="application/javascript" src="chrome://myapp/content/js/popFeCenters.js"/>
+   <script type="application/javascript" src="chrome://myapp/content/js/jquery.calculation.js"/>
 
-   
-   <tabbox>
+ 
+   <tabbox id="mainbox"  collapsed="true">
   <tabs>
-    <tab label="Synced - History" style="font-size: 15px; padding: 5px;" />
-    <tab label="Unsynced - History" style="font-size: 15px; padding: 5px;" />
-	<tab label="Today" style="font-size: 15px; padding: 5px;" selected="true"/>
-	<tab label="Future Date" style="font-size: 15px; padding: 5px;"  />
+    <tab label="Synced - History" />
+    <tab label="Unsynced - History" />
+	<tab label="Today" selected="true"/>
+	<tab label="Future Date" />
   </tabs>
   <tabpanels>
     <tabpanel id="synced" height="500"> 
@@ -53,25 +54,17 @@
     </tabpanel>
   </tabpanels>
 </tabbox>
-
-	<script>
-		var basePath = getAppPath('myapp');
-		var classLoaderJarpath = basePath + "java/javaFirefoxExtensionUtils.jar";
-		// Add the paths for all the other JAR files that  you will be using
-		var myJarpath = basePath + "java/XMLDBInterface.jar"; 
-		var urlArray = []; // Build a regular JavaScript array (LiveConnect will auto-convert to a Java array)
-		urlArray[0] = new java.net.URL(myJarpath);
-		urlArray[1] = new java.net.URL(classLoaderJarpath);
-		var cl = java.net.URLClassLoader.newInstance(urlArray);
-		policyAdd(cl, urlArray);
-		
-		/**Code execution**/
-		var aClass = java.lang.Class.forName("XMLDBQuery", true, cl);
-		var inst = aClass.newInstance();
-		var a = inst.executeXQuery("//collectionsheet");
-//		parseXml(a);
-		$('#firstchild').myPlugin();
-		$('#Unsyncedfirstchild').myPlugin();
-		
-	</script>
+<vbox flex="1" id="loginhtml">
+      	<browser height="700" 
+									type="content-primary" 
+									src="chrome://myapp/content/login.html" 
+									id="browserid" 
+									flex="3"
+									autoscroll="true"
+									onscroll="UI.browserScrolled(event);" 
+									contextmenu="contentAreaContextMenu"
+									style="padding:0px; margin:0px;"
+									tooltip="aHTMLTooltip"/>
+</vbox>
+	
 </window>

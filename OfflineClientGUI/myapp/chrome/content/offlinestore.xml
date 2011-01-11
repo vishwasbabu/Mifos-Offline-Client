@@ -1,12 +1,20 @@
 <?xml version="1.0"?>
  <xmldb>
- <collectionsheet status="synced" date="2010-11-14">
-	<center name="Center1" id="0000100001">
-		<group name="Group11" id="0000100002">
+ <centers>
+	<center id="0000100001" status="synced" >
+	<cname>Center1</cname>
+	<cfe empid="1001">Loan Officer 1</cfe>
+	<meetingdate>2011-01-14</meetingdate>
+	<groups>
+		<group id="0000100002">
+		<name>Group11</name>
+		 <members>
 			<member id="0000100002">
 				<fname>member111</fname>
 				<lname>ln111</lname>
 					<loandetails>
+					<loan>
+						<productname>IGL1</productname>
 						<loanacctnum>0010000000001</loanacctnum>
 						<instnum>23</instnum>
 						<disbAmount>8000</disbAmount>
@@ -17,12 +25,27 @@
 						<loanbalanceIntrest>250</loanbalanceIntrest>
 						<amountpaid>0</amountpaid>
 						<attn>A</attn>
+					</loan>
+					<loan>
+						<productname>EDU</productname>
+						<loanacctnum>0010000000001</loanacctnum>
+						<instnum>23</instnum>
+						<disbAmount>2000</disbAmount>
+						<disbDate>12/06/2010</disbDate>
+						<prdue>110</prdue>
+						<indue>25</indue>
+						<loanbalancePrincipal>2500</loanbalancePrincipal>
+						<loanbalanceIntrest>250</loanbalanceIntrest>
+						<amountpaid>0</amountpaid>
+					 </loan>
 					</loandetails>
 			</member>
 			<member id="0000100002">
 				<fname>member111</fname>
 				<lname>ln111</lname>
 					<loandetails>
+					<loan>
+						<productname>IGL1</productname>
 						<loanacctnum>0010000000001</loanacctnum>
 						<instnum>23</instnum>
 						<disbAmount>8000</disbAmount>
@@ -32,12 +55,16 @@
 						<loanbalancePrincipal>2500</loanbalancePrincipal>
 						<loanbalanceIntrest>250</loanbalanceIntrest>
 						<amountpaid>0</amountpaid>
+					</loan>	
 					</loandetails>
 			</member>
 			<member id="0000100002">
 				<fname>member112</fname>
 				<lname>ln111</lname>
 					<loandetails>
+					<loan>
+						<productname>IGL1</productname>
+
 						<loanacctnum>0010000000001</loanacctnum>
 						<instnum>23</instnum>
 						<disbAmount>8000</disbAmount>
@@ -47,12 +74,15 @@
 						<loanbalancePrincipal>2500</loanbalancePrincipal>
 						<loanbalanceIntrest>250</loanbalanceIntrest>
 						<amountpaid>0</amountpaid>
+					</loan>	
 					</loandetails>
 			</member>
 			<member id="0000100003">
 				<fname>member113</fname>
 				<lname>ln111</lname>
 					<loandetails>
+						<loan>
+						<productname>IGL1</productname>
 						<loanacctnum>0010000000001</loanacctnum>
 						<instnum>23</instnum>
 						<disbAmount>8000</disbAmount>
@@ -62,14 +92,21 @@
 						<loanbalancePrincipal>2500</loanbalancePrincipal>
 						<loanbalanceIntrest>250</loanbalanceIntrest>
 						<amountpaid>0</amountpaid>
+						</loan>
 					</loandetails>
 			</member>
+		</members>	
 		</group>
-		<group name="Group12" id="0000100003">
+		<group id="0000100003">
+		<name>Group12</name>
+		<members>
 			<member id="0000100003">
 				<fname>member113</fname>
 				<lname>ln111</lname>
 					<loandetails>
+						<loan>
+						<productname>IGL1</productname>
+
 						<loanacctnum>0010000000001</loanacctnum>
 						<instnum>23</instnum>
 						<disbAmount>8000</disbAmount>
@@ -79,18 +116,27 @@
 						<loanbalancePrincipal>2500</loanbalancePrincipal>
 						<loanbalanceIntrest>250</loanbalanceIntrest>
 						<amountpaid>0</amountpaid>
+						</loan>
 					</loandetails>
 			</member>
+		</members>	
 		</group>
+	</groups>	
 	</center>	
- </collectionsheet>
- <collectionsheet status="synced" date="19/11/2010">
-	<center name="Center2" id="0000100005">
-		<group name="Group21" id="0000100006">
+ 	<center id="0000100002" status="unsynced">
+	<cname>Center2</cname>
+	<cfe empid="1002">Loan Officer 1</cfe>
+	<meetingdate>2011-01-15</meetingdate>
+	<groups>
+		<group id="0000100006">
+		<name>Group21</name>
+		<members>
 			<member id="0000100003">
 				<fname>member113</fname>
 				<lname>ln111</lname>
 					<loandetails>
+					<loan>
+						<productname>IGL1</productname>
 						<loanacctnum>0010000000001</loanacctnum>
 						<instnum>23</instnum>
 						<disbAmount>8000</disbAmount>
@@ -100,14 +146,20 @@
 						<loanbalancePrincipal>2500</loanbalancePrincipal>
 						<loanbalanceIntrest>250</loanbalanceIntrest>
 						<amountpaid>0</amountpaid>
+					</loan>	
 					</loandetails>
 			</member>
-				</group>
-		<group name="Group22" id="0000100008">
+		</members>	
+		</group>
+		<group id="0000100008">
+		<name>Group22</name>
+		<members>
 			<member id="0000100003">
 				<fname>member113</fname>
 				<lname>ln111</lname>
 					<loandetails>
+					  <loan>
+						<productname>IGL1</productname>
 						<loanacctnum>0010000000001</loanacctnum>
 						<instnum>23</instnum>
 						<disbAmount>8000</disbAmount>
@@ -117,9 +169,89 @@
 						<loanbalancePrincipal>2500</loanbalancePrincipal>
 						<loanbalanceIntrest>250</loanbalanceIntrest>
 						<amountpaid>0</amountpaid>
+					 </loan>
+					 <loan>
+						<productname>EDU</productname>
+						<loanacctnum>0010000000001</loanacctnum>
+						<instnum>23</instnum>
+						<disbAmount>2000</disbAmount>
+						<disbDate>12/06/2010</disbDate>
+						<prdue>110</prdue>
+						<indue>25</indue>
+						<loanbalancePrincipal>2500</loanbalancePrincipal>
+						<loanbalanceIntrest>250</loanbalanceIntrest>
+						<amountpaid>0</amountpaid>
+					 </loan>
 					</loandetails>
 				</member>
+			</members>	
 		</group>
+	</groups>	
 	</center>	
- </collectionsheet>
+	<center id="0000100003" status="unsynced">
+	<cname>Center3</cname>
+	<cfe empid="1002">Loan Officer 1</cfe>
+	<meetingdate>2011-01-15</meetingdate>
+	<groups>
+		<group id="0000300006">
+		<name>Group31</name>
+		<members>
+			<member id="0000100003">
+				<fname>member113</fname>
+				<lname>ln111</lname>
+					<loandetails>
+					<loan>
+						<productname>IGL1</productname>
+						<loanacctnum>0010000000001</loanacctnum>
+						<instnum>23</instnum>
+						<disbAmount>8000</disbAmount>
+						<disbDate>12/06/2010</disbDate>
+						<prdue>250</prdue>
+						<indue>25</indue>
+						<loanbalancePrincipal>2500</loanbalancePrincipal>
+						<loanbalanceIntrest>250</loanbalanceIntrest>
+						<amountpaid>0</amountpaid>
+					</loan>	
+					</loandetails>
+			</member>
+		</members>	
+		</group>
+		<group id="0000100008">
+		<name>Group22</name>
+		<members>
+			<member id="0000100003">
+				<fname>member113</fname>
+				<lname>ln111</lname>
+					<loandetails>
+					  <loan>
+						<productname>IGL1</productname>
+						<loanacctnum>0010000000001</loanacctnum>
+						<instnum>23</instnum>
+						<disbAmount>8000</disbAmount>
+						<disbDate>12/06/2010</disbDate>
+						<prdue>250</prdue>
+						<indue>25</indue>
+						<loanbalancePrincipal>2500</loanbalancePrincipal>
+						<loanbalanceIntrest>250</loanbalanceIntrest>
+						<amountpaid>0</amountpaid>
+					 </loan>
+					 <loan>
+						<productname>EDU</productname>
+						<loanacctnum>0010000000001</loanacctnum>
+						<instnum>23</instnum>
+						<disbAmount>2000</disbAmount>
+						<disbDate>12/06/2010</disbDate>
+						<prdue>110</prdue>
+						<indue>25</indue>
+						<loanbalancePrincipal>2500</loanbalancePrincipal>
+						<loanbalanceIntrest>250</loanbalanceIntrest>
+						<amountpaid>0</amountpaid>
+					 </loan>
+					</loandetails>
+				</member>
+			</members>	
+		</group>
+	</groups>	
+	</center>	
+  </centers>
  </xmldb>
