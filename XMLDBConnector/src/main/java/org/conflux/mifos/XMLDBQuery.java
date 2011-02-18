@@ -1,7 +1,7 @@
 package org.conflux.mifos;
 
 /**
- * Created by IntelliJ IDEA.
+ * Created by Eclipse.
  * User: conflux
  * Date: 12/26/10
  * Time: 7:59 AM
