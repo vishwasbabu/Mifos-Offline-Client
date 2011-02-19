@@ -1,0 +1,90 @@
+<?xml version='1.0'?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://flamingo/skin/main.css" type="text/css"?>
+<?xul-overlay href="chrome://flamingo/content/todayoverlay.xul"?>
+<?xul-overlay href="chrome://flamingo/content/future.xul"?>
+<?xul-overlay href="chrome://flamingo/content/synced.xul"?>
+<?xul-overlay href="chrome://flamingo/content/unsynced.xul"?>
+
+<window
+ id="mainwindow"
+ title="Flamingo- A Mifos Client"
+ height="700"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+
+ sizemode="maximized">
+    <!--onload="init();"-->
+    <script type="application/javascript" src="chrome://flamingo/content/js/jquery-1.4.4.min.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/main.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/utils.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/collectionsheet.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/centerCollectionSheet.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/popFeCenters.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/jquery.calculation.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/synced.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/popunsyncedFeCenters.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/popfutureFeCenters.js"/>
+    <hbox class="parentbox">
+        <box>
+            <tabbox id="mainbox" collapsed="true">
+                <tabs>
+                    <tab label="Synced - History"/>
+                    <tab label="Unsynced - History"/>
+                    <tab label="Today" selected="true"/>
+                    <tab label="Future Date"/>
+                </tabs>
+                <tabpanels>
+                    <tabpanel id="synced" height="500">
+                    </tabpanel>
+                    <tabpanel id="unsynced" height="500">
+                    </tabpanel>
+                    <tabpanel id="Today">
+                    </tabpanel>
+                    <tabpanel id="future">
+                    </tabpanel>
+                </tabpanels>
+            </tabbox>
+        </box>
+        <box id="health" collapsed="true">
+            <vbox>
+                <box class="healthhd">
+                    <label value="HEALTH"/>
+                </box>
+                <separator/>
+                <hbox>
+                    <label value="Internet    "/><box class="healthorange"/>
+                </hbox>
+                <separator/>
+                <hbox>
+                    <label value="Unsynced "/><box class="healthred"/>
+                </hbox>
+                <separator/>
+                <hbox>
+                    <label value="Today       "/><box class="healthgreen"/>
+                </hbox>
+                <separator/>
+                <hbox>
+                    <label value="Future       "/><box class="healthorange"/>
+                </hbox>
+            </vbox>
+        </box>
+        
+    </hbox>
+    <vbox flex="1" id="loginhtml">
+        <browser height="500"
+         type="content-primary"
+         src="chrome://flamingo/content/login.html"
+         id="browserid"
+         flex="3"
+         autoscroll="true"
+         onscroll="UI.browserScrolled(event);"
+         contextmenu="contentAreaContextMenu"
+         style="padding:0px; margin:0px;"
+         tooltip="aHTMLTooltip"/>
+    </vbox>
+    <statusbar id="statusbarid" height="5">
+        <spacer flex="1"/>
+        <label value="" id="statusid2"/>
+    </statusbar>
+    
+</window>

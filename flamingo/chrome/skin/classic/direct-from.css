@@ -1,0 +1,147 @@
+
+body {
+	background-color: #DDD;
+}
+
+.directFromBottomRow {
+	clear: both;
+	height:20px;
+	overflow: hidden;
+	width:99%;
+}
+
+.directFromBox {
+	width:100%;
+}
+
+.directFromText {
+	padding:0;
+	margin:-1;
+	min-height:52px;
+	color: #444;
+}
+
+.directFromTable {
+	border-spacing:0px;
+	margin:0;
+	padding:0;
+	border-collapse:collapse;
+	width:100%;
+}
+
+.directFromText p {
+	padding:0;
+	margin:0;
+	min-height:52px;
+	color: #444;
+}
+
+.directFromMessage {
+	-moz-border-radius: 4px;
+	-moz-box-shadow: #111 0px 1px 3px 1px;
+	background-color:#f5f0bc;
+	margin:5px;
+	padding:0;
+}
+
+.directFromAvatar {
+	-moz-border-radius: 4px;
+	-moz-box-shadow: #999 0px 1px 1px 1px;
+	float:left;
+	height:40px;
+	margin:5px 5px 5px 10px;
+	padding:0px;
+	width:40px;
+}
+
+.directFromAvatarColumn {
+	width:40px;
+}
+
+.directFromTextColumn {
+	
+}
+
+.directFromScreenName {
+	color:#222;	
+	font-size:12px;
+	font-family:"Segoe UI", Arial, sans-serif;
+	font-weight:bold;
+}
+
+.directFromContent {
+	color:#444;	
+	font-size:12px;
+	font-family:"Segoe UI", Arial, sans-serif;
+	font-weight:normal;	
+	padding-right:8px;
+}
+
+.directFromContent a {
+	color:#22A;
+	text-decoration: underline;
+}
+
+.directFromReplyTo a {
+	color:#222;	
+	font-size:11px;
+	font-family:"Segoe UI", Arial, sans-serif;
+	font-weight:normal;	
+	padding-right:8px;
+	color:#88A;
+	text-decoration: none;
+}
+
+a:hover.directFromInfo {
+	border-width: 2px;
+	color: #22A;	
+	clear:none;
+	cursor: pointer;
+	font-size: 1.0em;
+	height: 16px;
+	margin-left:5px;	
+	min-height: 16px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+a.directFromInfo {
+	clear:none;
+	color: #666;	
+	font-size: 1.0em;
+	height: 16px;
+	margin-left:5px;	
+	min-height: 16px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.directFromInfo {
+	clear:none;
+	color: #666;
+	font-size: 0.7em;
+	font-family: "Segoe UI", Arial, sans-serif;	
+	height:16px;
+	margin-left:5px;	
+	min-height: 16px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.directFromVia {
+	clear:none;
+	color: #666;
+	font-size: 0.7em;
+	font-family: "Segoe UI", Arial, sans-serif;	
+	height:16px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.directFromIcon {
+	background-color: #f5f0bc;	
+	margin:0 2px 0 2px;
+	padding:0;
+	position:relative;
+	top:-2px;
+}

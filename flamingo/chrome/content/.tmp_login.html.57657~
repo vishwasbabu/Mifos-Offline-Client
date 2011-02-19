@@ -1,0 +1,112 @@
+<html>
+    <head id="head">
+        <title>Please Login</title>
+        <link rel="stylesheet" type="text/css" href="chrome://myapp/content/css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="chrome://myapp/content/css/login.css" />
+        <link rel="stylesheet" type="text/css" href="chrome://myapp/content/css/jquery-ui-1.8.5.custom.css" />
+        <script type="text/javascript" src="chrome://myapp/content/js/boot.js">
+        </script>
+        <script type="text/javascript" src="chrome://myapp/content/js/jquery-1.4.4.min.js">
+        </script>
+        <script type="text/javascript" src="chrome://myapp/content/js/jquery-ui-1.8.7.custom.min.js">
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(function(){
+                $("input:submit").button();
+            });
+        </script>
+        <!--
+        This whole page needs to be stringified for i18n
+        -->
+        <div class="login">
+            <div class="logo">
+                <span class="apptitle">Mifos<span class="title light-blue">Offline</span></span>
+                <br/>
+                <span class="versiontext">version <span class="light-blue">0.1- Preview Release</span></span>
+                <br/>
+                <img src="chrome://myapp/content/images/mifos-mainlogo.jpg" height="100px"/>
+            </div>
+            <div class="login-error" id="badAuth" style="display:none;">
+                Whoops, that didn't work!  Want to try again?
+            </div>
+            <div class="signupdiv">
+                <form id="login_form" onsubmit="login();">
+                    <fieldset style="margin-left:5em;margin-right:5em;padding-left:5em;padding-right:5em">
+                        <strong>
+                            <legend>
+                                <h2>Sign-up</h2>
+                            </legend>
+                        </strong>
+                        <table>
+                            <tr>
+                                <td class="smaller">
+                                    User name
+                                </td>
+                                <td>
+                                    <input class="login-input" id="username" type="text" onkeypress="checkEnter(event);"/>
+                                </td>
+                            </tr>
+                            <tr class="login-input">
+                                <td class="smaller">
+                                    Password
+                                </td>
+                                <td>
+                                    <input class="login-input" id="password" type="password" onkeypress="checkEnter(event);"/>
+                                </td>
+                            </tr>
+                        </table><input type="submit" id="loginOkButton" name="ok" value="Sign me up!!" onclick="manualFirstLogin();"/>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="logindiv">
+                <form id="login_form" onsubmit="login();">
+                    <fieldset style="margin-left:5em;margin-right:5em;padding-left:5em;padding-right:5em">
+                        <strong>
+                            <legend>
+                                <h2>Login</h2>
+                            </legend>
+                        </strong>
+                        <table>
+                            <tr>
+                                <td class="smaller">
+                                    User Name:
+                                </td>
+                                <td>
+                                    <input class="login-input" id="signinusername" type="text" onkeypress="checkEnter(event);"/>
+                                </td>
+                            </tr>
+                            <tr class="login-input">
+                                <td class="smaller">
+                                    Password:
+                                </td>
+                                <td>
+                                    <input class="login-input" id="password" type="password" onkeypress="checkEnter(event);"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="smaller" align="right">
+                                    <input id="saveCredentials" type="checkbox" value="saveCredentials" />
+                                </td>
+                                <td class="smaller">
+                                    Remember me
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="submit" id="loginOkButton" name="ok" value="Lets go!" onclick="manualFirstLogin();"/>
+                        <fieldset>
+                        </form>
+                    </div>
+                    <p>
+                        <img id="loginThrobber" src="chrome://myapp/content/images/login-loader.gif" class="loginThrobber" style="display:none;"/>
+                    </p>
+                    <p class="footer">
+                        <a href="#" onclick="linkTo('http://Mifosusermanualkit.org');">User Manual </a>.
+                    </p>
+                    </div>
+                    <script type="text/javascript">
+                        document.getElementById('signinusername').focus();
+                    </script>
+                </body>
+                </html>

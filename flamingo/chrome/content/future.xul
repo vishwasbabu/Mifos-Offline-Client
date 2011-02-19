@@ -1,0 +1,130 @@
+<?xml version='1.0'?>
+<overlay id="toverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    
+    
+    <tabpanel id="future">
+        <vbox class="futuremainbox">
+            <vbox>
+                <box align="center">
+                    <image onclick="$('#futuregetdata').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/down_icon.gif' width='25' height='25'/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
+                </box>
+                <hbox id="futuregetdata" height="60">
+                    <box align="center">
+                        <label value="Date"/>
+                        <datepicker id="todaydate" type="popup" value="" readonly="true"/>
+                        <label value="Loan Officer"/>
+                        <menulist label="attn">
+                            <menupopup>
+                                <menuitem label="Raja"/>
+                                <menuitem label="Thomas"/>
+                                <menuitem label="Arun" selected="true"/>
+                                <menuitem label="Ayaz"/>
+                            </menupopup>
+                        </menulist>
+                        <image onclick="alert('need to write action');" src='chrome://myapp/skin/images/extra/download.png' width='36' height='36'/>
+                    </box>
+                </hbox>
+                <hbox align="center" style="padding: 5px;">
+                </hbox>
+                
+            </vbox>
+            <hbox>
+                <vbox class="futurelocenter" orient="vertical" width="200" maxheight="500">
+                    <grid id="testgrid" width="200">
+                        <columns>
+                            <column width="170"/>
+                            <column width="30"/>
+                        </columns>
+                        <rows id="futurelocenter" style="overflow:auto">
+                        </rows>
+                    </grid>
+                </vbox>
+                
+                <box orient="vertical" height="500" width="800">
+                    <box orient="vertical" width="800">
+                        <groupbox class="todaycollectionrb">
+                            <caption class="h2" label="Center Details"/>
+                            <grid>
+                                <columns>
+                                    <column flex="1" width="450"/>
+                                    <column flex="2"/>
+                                </columns>
+                                <rows>
+                                    <row>
+                                        <box align="center">
+                                            <label class="h1" value="Center Name: "/><label id="centername" value=""/>
+                                        </box>
+                                        <hbox>
+                                            <label class="h1" value="Loan Officer Name:"/><label id="todayloname" value=""/>
+                                        </hbox>
+                                    </row>
+                                </rows>
+                            </grid>
+                        </groupbox>
+                    </box>
+                    <separator/>
+                    <vbox orient="vertical" class="todaycollectionrb">
+                        <grid width="800">
+                            <columns>
+                                <column width="100"/>
+                                <column width="50"/>
+                                <column width="90"/>
+                                <column width="70"/>
+                                <column width="70"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="100"/>
+                            </columns>
+                            <rows>
+                                <row class="todaycollectionhd">
+                                    <label value="Client Name"/>
+                                    <label value="Prd"/>
+                                    <label value="Disb amt"/>
+                                    <label value="Inst #"/>
+                                    <label value="Prn Amt"/>
+                                    <label value="Int Amt"/>
+                                    <label value="Amt Paid"/>
+                                    <label value="A/C Collections"/>
+                                    <label value="Attn"/>
+                                </row>
+                            </rows>
+                        </grid>
+                        <grid id="testgrid" maxheight="250" width="800">
+                            <columns>
+                                <column width="100"/>
+                                <column width="50"/>
+                                <column width="90"/>
+                                <column width="70"/>
+                                <column width="70"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="100"/>
+                            </columns>
+                            <rows id="futurecentercollectionsheet" style="overflow:auto">
+                            </rows>
+                        </grid>
+                        <grid width="800">
+                            <columns>
+                                <column width="100"/>
+                                <column width="50"/>
+                                <column width="90"/>
+                                <column width="70"/>
+                                <column width="70"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="100"/>
+                            </columns>
+                            <rows id="futurecentercollectionsheettotal" height="30">
+                            </rows>
+                        </grid>
+                    </vbox>
+                    <separator/>
+                </box>
+            </hbox>
+        </vbox>
+    </tabpanel>
+</overlay>

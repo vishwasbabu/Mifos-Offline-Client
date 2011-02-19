@@ -1,0 +1,133 @@
+
+html, body{ 
+height: 100%; 
+min-height: 100%; 
+} 
+
+window {
+    -moz-binding: url("chrome://buzzbird/chrome/content/unified.xml#unified")
+}
+
+body {
+	font-family: Helvetica,"Franklin Gothic Medium","Helvetica Neue","MgOpen Moderna";
+	/*
+	background: url("chrome://buzzbird/content/images/carbon-blue-fade-up-bg-8x150.png");
+	background-position: bottom left;
+	background-repeat: repeat-x;	
+	*/
+}
+
+table {
+	margin: 20px auto 20px auto;
+}
+
+.apptitle {
+	font-size: 38px;
+	padding: 125px 0px 0px 10px;
+	color: black;
+}
+
+.versiontext {
+	font-size:14px;
+	color: black;
+}
+
+.light-blue {
+	color: #6D6968;
+}
+
+.biggest {
+	font-size: 32px;
+}
+
+.bigger {
+	font-size: 16px;
+}
+
+.smaller {
+	font-size: 12px;
+	padding: 4px;
+}
+
+.tagline {
+	font-size: 12px;
+}
+
+.blue01 {
+	color: #3b62e1;
+}
+
+.login-error {
+	color: #ea6e09;
+	margin-top:10px;
+	padding-top:10px;
+}
+
+.login {
+	text-align: center;
+	vertical-align: middle;
+	font-size: 0.8em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 80px;
+}
+
+.logo {
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+	padding:20px;
+	border-top:medium solid #dbdbff;
+	border-bottom:medium solid #dbdbff;
+}
+
+.loginThrobber {
+	margin-top: 20px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.login-input {
+	margin-bottom:5px;
+	margin-top:5px;
+	height:24px;
+}
+
+
+.logindiv {
+	padding:50px;
+	margin-right:50px;
+	float: right;
+	
+}
+
+.signupdiv {
+	padding:50px;
+	margin-left:50px;
+	float: left;
+}
+
+
+
+.footer {
+	color: #888;
+	position: absolute;
+	bottom: 20px;
+	left: auto;
+	right: auto;
+	text-align: center;
+	width: 100%;
+	font-size:12px;
+}
+
+a {
+	color: #777;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+	cursor:pointer;
+}
