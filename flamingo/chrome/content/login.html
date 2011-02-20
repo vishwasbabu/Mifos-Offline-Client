@@ -4,17 +4,13 @@
         <link rel="stylesheet" type="text/css" href="chrome://flamingo/content/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="chrome://flamingo/content/css/login.css" />
         <link rel="stylesheet" type="text/css" href="chrome://flamingo/content/css/jquery-ui-1.8.5.custom.css" />
-        <script type="text/javascript" src="chrome://flamingo/content/js/boot.js">
-        </script>
-        <script type="text/javascript" src="chrome://flamingo/content/js/jquery-1.4.4.min.js">
-        </script>
         <script type="text/javascript" src="chrome://flamingo/content/js/jquery-ui-1.8.7.custom.min.js">
         </script>
     </head>
     <body>
         <script type="text/javascript">
             $(function(){
-                $("input:submit").button();
+                $("input:button").button();
             });
         </script>
         <!--
@@ -26,13 +22,13 @@
                 <br/>
                 <span class="versiontext">version <span class="light-blue">0.1- Preview Release</span></span>
                 <br/>
-                <img src="chrome://flamingo/content/images/flamingo.jpg"/>
+                <img src="chrome://flamingo/content/images/flamingo.jpg" height="250px"/>
             </div>
             <div class="login-error" id="badAuth" style="display:none;">
                 Whoops, that didn't work!  Want to try again?
             </div>
             <div class="signupdiv">
-                <form id="login_form" onsubmit="login();">
+                <form id="signup_form" onsubmit="signup();">
                     <fieldset style="margin-left:5em;margin-right:5em;padding-left:5em;padding-right:5em">
                         <strong>
                             <legend>
@@ -56,18 +52,27 @@
                                     <input class="login-input" id="signuppassword" type="password" onkeypress="checkEnter(event);"/>
                                 </td>
                             </tr>
-                        </table><input type="button" id="registerButton" name="ok" value="Sign me up!!" onclick="signup();"/>
+                            <tr>
+                                <td class="smaller" align="right">
+                                    <input id="signupSaveCredentials" type="checkbox" value="saveCredentials" />
+                                </td>
+                                <td class="smaller">
+                                    Remember me
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="button" id="registerButton" name="ok" value="Sign me up!!" onclick="signup();"/>
                     </fieldset>
                 </form>
             </div>
             <div>
-                <form id="login_form" onsubmit="login();">
+                <form id="login_form" onsubmit="authenticate();">
                     <fieldset style="margin-left:5em;margin-right:5em;padding-left:5em;padding-right:5em">
-                        <!--<strong>
-                        <legend>
-                        <h2>Login</h2>
-                        </legend>
-                        </strong>-->
+                        <strong>
+                            <legend>
+                                <h2>Login</h2>
+                            </legend>
+                        </strong>
                         <table>
                             <tr>
                                 <td class="smaller">

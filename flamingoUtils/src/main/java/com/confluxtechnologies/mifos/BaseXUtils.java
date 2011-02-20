@@ -5,7 +5,6 @@ import java.io.IOException;
 import net.sf.json.JSON;
 import net.sf.json.xml.XMLSerializer;
 
-import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
 import org.basex.core.cmd.List;
@@ -18,22 +17,23 @@ public class BaseXUtils {
 
 	Context context = new Context();
 
-	BaseXUtils() throws BaseXException {
-		/** Database context. */
-
-		// Check If Flamingo DB exists
-		System.out.println("\n* Show existing databases:"
-				+ new List().execute(context));
-		if (!new List().execute(context).contains("flamingo")) {
-			// Create Flamingo DB
-			System.out.println("\n* Create a database.");
-			new CreateDB("flamingo",
-					"<Branch><name>Uninitialized</name><Personnels></Personnels></Branch>")
-					.execute(context);
+	public boolean init() {
+		try {
+			System.out.println("\n* Show existing databases:"
+					+ new List().execute(context));
+			if (!new List().execute(context).contains("flamingo")) {
+				// Create Flamingo DB
+				System.out.println("\n* Create a database.");
+				new CreateDB("flamingo",
+						"<Branch><name>Uninitialized</name><Personnels></Personnels></Branch>")
+						.execute(context);
+			}
+			new Open("flamingo").execute(context);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-		new Open("flamingo").execute(context);
-		// Close the database context
-		//
 	}
 
 	@Override
@@ -64,15 +64,13 @@ public class BaseXUtils {
 		return xmlSerializer.read("<result>" + result.toString() + "</result>");
 	}
 
-	/*public static void main(String[] args) throws BaseXException,
-			QueryException, IOException {
-		System.out.println("Datta");
-		BaseXUtils baseXUtils = new BaseXUtils();
-		String a = "//Branch";
-		System.out.println(a);
-
-		System.out.println(baseXUtils.process(a));
-		baseXUtils.context.close();
-	}*/
+	/*
+	 * public static void main(String[] args) throws BaseXException,
+	 * QueryException, IOException { System.out.println("Datta"); BaseXUtils
+	 * baseXUtils = new BaseXUtils(); String a = "//Branch";
+	 * System.out.println(a);
+	 * 
+	 * System.out.println(baseXUtils.process(a)); baseXUtils.context.close(); }
+	 */
 
 }

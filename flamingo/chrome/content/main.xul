@@ -11,7 +11,7 @@
  title="Flamingo- A Mifos Client"
  height="700"
  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-
+ onload="tempInit();"
  sizemode="maximized">
     <!--onload="init();"-->
     <script type="application/javascript" src="chrome://flamingo/content/js/jquery-1.4.4.min.js"/>
@@ -24,6 +24,10 @@
     <script type="application/javascript" src="chrome://flamingo/content/js/synced.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/popunsyncedFeCenters.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/popfutureFeCenters.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/boot.js"/>
+    
+    <script type="text/javascript" src="chrome://flamingo/content/js/global.js">
+    </script>
     <hbox class="parentbox">
         <box>
             <tabbox id="mainbox" collapsed="true">
