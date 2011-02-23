@@ -15,7 +15,7 @@
             
             var image = document.createElement("image");
             image.setAttribute("onclick", "$('#" + rowsid + "').toggle('showOrHide ');");
-            image.setAttribute("src", "chrome://myapp/skin/images/extra/calendar.png");
+            image.setAttribute("src", "chrome://flamingo/skin/images/extra/calendar.png");
             image.setAttribute("width", "16");
             image.setAttribute("height", "16");
             
@@ -70,7 +70,7 @@
                 
                 var image = document.createElement("image");
                 image.setAttribute("onclick", "alert('need to write code');");
-                image.setAttribute("src", "chrome://myapp/skin/images/extra/delete-icon.png");
+                image.setAttribute("src", "chrome://flamingo/skin/images/extra/delete-icon.png");
                 image.setAttribute("width", "16");
                 image.setAttribute("height", "16");
                 box.appendChild(image);

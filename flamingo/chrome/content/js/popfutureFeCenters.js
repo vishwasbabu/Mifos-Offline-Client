@@ -44,7 +44,7 @@
 			
 			var image = document.createElement("image");
 			image.setAttribute("onclick","$('#" + rowsfeid + "').toggle('showOrHide');");
-			image.setAttribute("src","chrome://myapp/skin/images/extra/icon.collapse.png");
+			image.setAttribute("src","chrome://flamingo/skin/images/extra/icon.collapse.png");
 
 			box.appendChild(image);
 			row.appendChild(box);

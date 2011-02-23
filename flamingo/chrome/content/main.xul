@@ -1,16 +1,19 @@
 <?xml version='1.0'?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://flamingo/skin/main.css" type="text/css"?>
+<?xml-stylesheet href="chrome://flamingo/cotent/css/login.css" type="text/css"?>
 <?xul-overlay href="chrome://flamingo/content/todayoverlay.xul"?>
 <?xul-overlay href="chrome://flamingo/content/future.xul"?>
 <?xul-overlay href="chrome://flamingo/content/synced.xul"?>
 <?xul-overlay href="chrome://flamingo/content/unsynced.xul"?>
+<?xul-overlay href="chrome://flamingo/content/login.xul"?>
 
 <window
  id="mainwindow"
  title="Flamingo- A Mifos Client"
  height="700"
  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ xmlns:html="http://www.w3.org/1999/xhtml"
  onload="tempInit();"
  sizemode="maximized">
     <!--onload="init();"-->
@@ -25,7 +28,6 @@
     <script type="application/javascript" src="chrome://flamingo/content/js/popunsyncedFeCenters.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/popfutureFeCenters.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/boot.js"/>
-    
     <script type="text/javascript" src="chrome://flamingo/content/js/global.js">
     </script>
     <hbox class="parentbox">
@@ -56,39 +58,31 @@
                 </box>
                 <separator/>
                 <hbox>
-                    <label value="Internet    "/><box class="healthorange"/>
+                    <label value="Internet    "/>
+                    <box class="healthorange"/>
                 </hbox>
                 <separator/>
                 <hbox>
-                    <label value="Unsynced "/><box class="healthred"/>
+                    <label value="Unsynced "/>
+                    <box class="healthred"/>
                 </hbox>
                 <separator/>
                 <hbox>
-                    <label value="Today       "/><box class="healthgreen"/>
+                    <label value="Today       "/>
+                    <box class="healthgreen"/>
                 </hbox>
                 <separator/>
                 <hbox>
-                    <label value="Future       "/><box class="healthorange"/>
+                    <label value="Future       "/>
+                    <box class="healthorange"/>
                 </hbox>
             </vbox>
         </box>
         
     </hbox>
     <vbox flex="1" id="loginhtml">
-        <browser height="500"
-         type="content-primary"
-         src="chrome://flamingo/content/login.html"
-         id="browserid"
-         flex="3"
-         autoscroll="true"
-         onscroll="UI.browserScrolled(event);"
-         contextmenu="contentAreaContextMenu"
-         style="padding:0px; margin:0px;"
-         tooltip="aHTMLTooltip"/>
+        
     </vbox>
-    <statusbar id="statusbarid" height="5">
-        <spacer flex="1"/>
-        <label value="" id="statusid2"/>
-    </statusbar>
+    
     
 </window>

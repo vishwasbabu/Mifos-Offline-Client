@@ -10,7 +10,7 @@
 var synchedData = '{"collectionsheet":{"center":[{"name":"C1","group":[{"name":"G11","member":[{"name":"mem111"},{"name":"mem112"}]},{"name":"G12","member":[{"name":"mem121"},{"name":"mem122"}]}]},{"name":"C2","group":[{"name":"G21","member":[{"name":"mem211"},{"name":"mem212"}]},{"name":"G22","member":[{"name":"mem221"},{"name":"mem222"}]}]}]}}';
 var obj = jQuery.parseJSON(synchedData);
 
-$.each(obj.collectionsheet.center, function(i, centervalues) {           //looping group
+$.each(obj.LoanOfficer.Centers, function(i, centervalues) {           //looping group
 		
 		var treeitem = document.createElement("treeitem");
 		treeitem.setAttribute("container","true");
@@ -24,10 +24,10 @@ $.each(obj.collectionsheet.center, function(i, centervalues) {           //loopi
 		treeitem.appendChild(treerow);
 		
 		var centertreechildren = document.createElement("treechildren");
-		//alert( 'Center Name : ' + centervalues.name);
+		alert( 'Center Name : ' + centervalues.name);
 	
-	$.each(centervalues.group, function(j, groupvalues) {
-			//alert('Group Name: ' + groupvalues.name);
+	$.each(centervalues.Groups, function(j, groupvalues) {
+			alert('Group Name: ' + groupvalues.name);
 			var grouptreeitem = document.createElement("treeitem");
 			grouptreeitem.setAttribute("container","true");
 			grouptreeitem.setAttribute("open","true");		
@@ -40,7 +40,7 @@ $.each(obj.collectionsheet.center, function(i, centervalues) {           //loopi
 			
 			var grouptreechildren = document.createElement("treechildren");
 				
-			$.each(groupvalues.member, function(j, membervalues) {
+			$.each(groupvalues.Members, function(j, membervalues) {
 					var membertreeitem = document.createElement("treeitem");
 					membertreeitem.setAttribute("container","true");
 					membertreeitem.setAttribute("open","true");		

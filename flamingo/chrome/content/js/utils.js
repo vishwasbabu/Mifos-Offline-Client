@@ -37,10 +37,11 @@ function init(){
 
 
 function tempInit(){
-	alert("hello");
-	alert(dummy);
+    alert("hello");
+    alert(dummy);
     setUpJavaDependencies();
-	alert(authenticationUtils);
+    alert(authenticationUtils);
+    $('#todaylocenter').loanOffCenter();
 }
 
 function onTreeClicked(event){
@@ -54,8 +55,51 @@ function onTreeClicked(event){
     $('#centercollectionsheet').centerCollectionSheet(cellText);
 }
 
+
+function centerTotal(){
+    jsdump("calculating the center Total");
+    var centerSum = 0;
+    var centerMiscSum = 0;
+    /**assume max 500 groups in a center**/
+    for (i = 0; i < 500; i++) {
+        var groupAmtSumId = "group" + i + "amtsum";
+        var groupMiscSumId = "group" + i + "miscsum";
+        
+        if (document.getElementById(groupAmtSumId) != null) {
+            jsdump("entered group " + groupAmtSumId + "for calculating the group total");
+            var grpSum = 0;
+            var grpMiscSum = 0;
+            //calculate the group sum (assume max 500 loans for members in a group)
+            for (j = 0; j < 500; j++) {
+                var loanAmountIdName = "group" + i + "memberloan" + j + "amt";
+                var miscAmountIdName = "group" + i + "memberloan" + j + "misc";
+                if (document.getElementById(loanAmountIdName) != null) {
+                    alert(loanAmountIdName + ":" + Number(document.getElementById(loanAmountIdName).value));
+                    grpSum = grpSum + Number(document.getElementById(loanAmountIdName).value);
+                    grpMiscSum = grpMiscSum + Number(document.getElementById(miscAmountIdName).value);
+                }
+                else {
+                    centerSum = centerSum + grpSum;
+                    centerMiscSum = centerMiscSum + grpMiscSum;
+                    document.getElementById(groupAmtSumId).value = grpSum.toFixed(2);
+                    document.getElementById(groupMiscSumId).value = grpMiscSum.toFixed(2);
+                    jsdump("calculated group sum for " + groupAmtSumId);
+                    break;
+                }
+                
+            }
+        }
+        else {
+            document.getElementById("centerCollectionAmount").value = centerSum.toFixed(2);
+            document.getElementById("centerMiscCollectionAmount").value = centerMiscSum.toFixed(2);
+            jsdump("calculated sum for selected center");
+            break;
+        }
+    }
+}
+
 function getdata(query){
-    return authenticationUtils.executeXQuery();
+    return baseXUtils.process(query);
 }
 
 

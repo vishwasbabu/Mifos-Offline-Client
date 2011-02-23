@@ -15,26 +15,42 @@ function getMainWindow(){
 
 function disableControls(){
     jsdump("disabling all controls");
-    getBrowser().contentDocument.getElementById('loginThrobber').style.display = 'inline';
-    getBrowser().contentDocument.getElementById('username').disabled = true;
-    getBrowser().contentDocument.getElementById('signupusername').disabled = true;
-    getBrowser().contentDocument.getElementById('password').disabled = true
-    getBrowser().contentDocument.getElementById('signuppassword').disabled = true;
-    getBrowser().contentDocument.getElementById('loginOkButton').disabled = true;
-    getBrowser().contentDocument.getElementById('registerButton').disabled = true;
+    $("#loginThrobber").toggle();
+    /*
+    
+     $("#username").attr("disabled", "true");
+    
+     $("#registerUsername").attr("disabled", "true");
+    
+     $("#password").attr("disabled", "true");
+    
+     $("#registerPassword").attr("disabled", "true");
+    
+     $("#loginButton").attr("disabled", "disabled");
+    
+     $("#registerButton").attr("disabled", "disabled");
+    
+     jsdump("there?")*/
+    
 }
 
 function enableControls(){
     jsdump("enabling all controls");
-    getBrowser().contentDocument.getElementById('badAuth').style.display = 'inline';
-    getBrowser().contentDocument.getElementById('loginThrobber').style.display = 'none';
+    $("#authError").toggle();
+    $("#loginThrobber").toggle();
     
-    getBrowser().contentDocument.getElementById('username').disabled = false;
-    getBrowser().contentDocument.getElementById('signupusername').disabled = false;
-    getBrowser().contentDocument.getElementById('password').disabled = false;
-    getBrowser().contentDocument.getElementById('signuppassword').disabled = false;
-    getBrowser().contentDocument.getElementById('loginOkButton').disabled = false;
-    getBrowser().contentDocument.getElementById('registerButton').disabled = false;
+    /* $("#username").attr("disabled", "false");
+    
+     $("#registerUsername").attr("disabled", "false");
+    
+     $("#password").attr("disabled", "false");
+    
+     $("#registerPassword").attr("disabled", "false");
+    
+     $('#loginButton').removeAttr("disabled");
+    
+     $('#registerButton').removeAttr("disabled");*/
+    
 }
 
 function navigateToNextPage(){
@@ -45,13 +61,11 @@ function navigateToNextPage(){
 }
 
 function authenticate(){
-	alert(dummy);
-	alert(authenticationUtils);
     disableControls();
-    var username = getBrowser().contentDocument.getElementById('username').value;
+    var username = $('#username').val();
     jsdump(username + "being authenticated");
-    var password = getBrowser().contentDocument.getElementById('password').value;
-    var save = getBrowser().contentDocument.getElementById('saveCredentials').checked;
+    var password = $('#password').val();
+    // var save = $('saveCredentials').checked;
     if (authenticationUtils.authenticateUser(username, password)) {
         setContext(username, password, "", "");
         navigateToNextPage();
@@ -65,8 +79,8 @@ function authenticate(){
 
 function signup(){
     disableControls();
-    var username = getBrowser().contentDocument.getElementById('signupusername').value;
-    var password = getBrowser().contentDocument.getElementById('signuppassword').value;
+    var username = $("#registerUsername").val();
+    var password = $("#registerPassword").val();
     jsdump("User " + username + "with password " + password);
     /**Check credentials**/
     if (Account.login(username, password)) {
@@ -101,7 +115,7 @@ var Account = {
             var response = JSON.parse(req.responseText);
             jsdump("user Validity :" + response.PersonnelDetails.valid);
             if (response.PersonnelDetails.valid) {
-				alert(authenticationUtils);
+                alert(authenticationUtils);
                 authenticationUtils.addUser(username, password);
                 setContext(username, password, response.PersonnelDetails.authenticationKey, response.PersonnelDetails.level);
                 return true;

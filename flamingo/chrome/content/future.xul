@@ -7,12 +7,24 @@
         <vbox class="futuremainbox">
             <vbox>
                 <box align="center">
-                    <image onclick="$('#futuregetdata').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/down_icon.gif' width='25' height='25'/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
+                    <image onclick="$('#futuregetdata').toggle('showOrHide');" src='chrome://flamingo/skin/images/extra/down_icon.gif' width='25' height='25'/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
                 </box>
                 <hbox id="futuregetdata" height="60">
                     <box align="center">
-                        <label value="Date"/>
-                        <datepicker id="todaydate" type="popup" value="" readonly="true"/>
+                        <label value="For the next"/>
+                        <menulist label="days">
+                            <menupopup>
+                                <menuitem label="1" selected="true"/>
+                                <menuitem label="2"/>
+                                <menuitem label="3"/>
+                                <menuitem label="4"/>
+                                <menuitem label="5"/>
+                                <menuitem label="6"/>
+                                <menuitem label="7"/>
+                            </menupopup>
+                        </menulist>
+                        <label value="day(s)"/>
+                        <!--<datepicker id="todaydate" type="popup" value="" readonly="true"/>-->
                         <label value="Loan Officer"/>
                         <menulist label="attn">
                             <menupopup>
@@ -22,7 +34,7 @@
                                 <menuitem label="Ayaz"/>
                             </menupopup>
                         </menulist>
-                        <image onclick="alert('need to write action');" src='chrome://myapp/skin/images/extra/download.png' width='36' height='36'/>
+                        <image onclick="alert('need to write action');" src='chrome://flamingo/skin/images/extra/download.png' width='36' height='36'/>
                     </box>
                 </hbox>
                 <hbox align="center" style="padding: 5px;">

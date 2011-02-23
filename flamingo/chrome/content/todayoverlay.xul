@@ -7,7 +7,7 @@
         <vbox class="todaymainbox">
             <vbox>
                 <box align="center">
-                    <image onclick="$('#todaygetdata').toggle('showOrHide ');" src='chrome://myapp/skin/images/extra/down_icon.gif' width='25' height='25'/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
+                    <image onclick="$('#todaygetdata').toggle('showOrHide ');" src='chrome://flamingo/skin/images/extra/down_icon.gif' width='25' height='25'/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
                 </box>
                 <hbox id="todaygetdata" height="60">
                     <box align="center">
@@ -22,7 +22,7 @@
                                 <menuitem label="Ayaz"/>
                             </menupopup>
                         </menulist>
-                        <image onclick="alert('need to write action');" src='chrome://myapp/skin/images/extra/download.png' width='36' height='36'/>
+                        <image onclick="alert('need to write action');" src='chrome://flamingo/skin/images/extra/download.png' width='36' height='36'/>
                     </box>
                 </hbox>
                 <hbox align="center" style="padding: 5px;">
@@ -53,7 +53,7 @@
                                 <rows>
                                     <row>
                                         <box align="center">
-                                            <label class="h1" value="Center Name: "/><label id="centername" value=""/>
+                                            <label class="h1" value="Center Name: "/><label id="todayCenterName" value="datta"/>
                                         </box>
                                         <box align="center">
                                             <label class="h1" value="Date of transaction: "/><datepicker id="todaydatetrx" type="popup" value=""/>
@@ -61,7 +61,7 @@
                                     </row>
                                     <row>
                                         <hbox>
-                                            <label class="h1" value="Loan Officer Name:"/><label id="todayloname" value=""/>
+                                            <label class="h1" value="Loan Officer Name:"/><label id="todayLOName" value=""/>
                                         </hbox>
                                         <hbox align="center">
                                             <label class="h1" value="Receipt ID:     "/><textbox value=""/>
@@ -91,8 +91,8 @@
                     <vbox orient="vertical" class="todaycollectionrb">
                         <grid width="800">
                             <columns>
-                                <column width="100"/>
-                                <column width="50"/>
+                                <column width="120"/>
+                                <column width="80"/>
                                 <column width="90"/>
                                 <column width="70"/>
                                 <column width="70"/>
@@ -151,7 +151,7 @@
                         <box align="center">
                             <box class="syncboxgreen" id="syncbutton" align="center">
                                 <label value="Sync to Web"/>
-                                <image onclick="alert('need to write action');" src='chrome://myapp/skin/images/extra/icon_sync.png' width='20' height='20'/>
+                                <image onclick="alert('need to write action');" src='chrome://flamingo/skin/images/extra/icon_sync.png' width='20' height='20'/>
                             </box>
                             <button label="Reset"/>
                             <button label="Save"/>

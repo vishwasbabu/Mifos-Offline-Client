@@ -117,7 +117,7 @@
 	<box align="center">
 	<box class="syncboxgreen" id="unsyncbutton" align="center">
 		<label value="Sync to Web"/>
-		<image onclick="alert('need to write action');" src='chrome://myapp/skin/images/extra/icon_sync.png' width='20' height='20' />
+		<image onclick="alert('need to write action');" src='chrome://flamingo/skin/images/extra/icon_sync.png' width='20' height='20' />
 	</box>
 	<button label="Reset" />
 	<button label="Save" />
