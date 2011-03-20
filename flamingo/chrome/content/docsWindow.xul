@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<window
+ id="userguide-window"
+ title="User Guide"
+ width="400"
+ height="450"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <description value="work in progress........"/>
+</window>

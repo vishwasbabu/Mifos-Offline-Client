@@ -1,0 +1,144 @@
+<?xml version='1.0'?>
+<overlay id="toverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    
+    
+    <tabpanel id="unsyncedPanel">
+        
+        <vbox class="todaymainbox">
+            <hbox>
+                <vbox class="futurelocenter" orient="vertical" width="200" height="500">
+                    <grid id="testgrid" width="800">
+                        <columns>
+                            <column width="170"/>
+                            <column width="30"/>
+                        </columns>
+                        <rows id="unsyncedLOAndCenters" style="overflow:auto">
+                        </rows>
+                    </grid>
+                </vbox>
+                
+                <box orient="vertical" height="500" width="800">
+                    <box orient="vertical" width="800">
+                        <groupbox class="todaycollectionrb">
+                            <caption class="h2" label="Center Details"/>
+                            <grid>
+                                <columns>
+                                    <column flex="1" width="450"/>
+                                    <column flex="2"/>
+                                </columns>
+                                <rows>
+                                    <row>
+                                        <box align="center">
+                                            <label class="h1" value="Center Name: "/><label id="unsyncedCenterName" value=""/>
+                                            <label id="unsyncedCenterId" style="display:none" value=""/>
+                                            <label id="unsyncedMeetingDate" style="display:none" value=""/>
+                                        </box>
+                                        <box align="center">
+                                            <label class="h1" value="Date of transaction:"/><datepicker id="untodaydatetrx" type="popup" value=""/>
+                                        </box>
+                                    </row>
+                                    <row>
+                                        <hbox>
+                                            <label class="h1" value="Loan Officer Name:"/><label id="unsyncedLOName" value=""/>
+                                        </hbox>
+                                        <hbox align="center">
+                                            <label class="h1" value="Receipt ID:     "/><textbox value=""/>
+                                        </hbox>
+                                    </row>
+                                    <row>
+                                        <box align="center">
+                                            <label class="h1" value="Mode of payment:  "/>
+                                            <menulist label="mop">
+                                                <menupopup>
+                                                    <menuitem label="Cash"/>
+                                                    <menuitem label="Voch"/>
+                                                    <menuitem label="Cq" selected="true"/>
+                                                    <menuitem label="Online"/>
+                                                </menupopup>
+                                            </menulist>
+                                        </box>
+                                        <hbox align="center">
+                                            <label class="h1" value="Receipt Date:          "/><datepicker id="untodaydaterpt" type="popup" value=""/>
+                                        </hbox>
+                                    </row>
+                                </rows>
+                            </grid>
+                        </groupbox>
+                    </box>
+                    <separator/>
+                    <vbox orient="vertical" class="todaycollectionrb">
+                        <grid width="800">
+                            <columns>
+                                <column width="100"/>
+                                <column width="50"/>
+                                <column width="90"/>
+                                <column width="70"/>
+                                <column width="70"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="100"/>
+                            </columns>
+                            <rows>
+                                <row class="todaycollectionhd">
+                                    <label value="Client Name"/>
+                                    <label value="Prd"/>
+                                    <label value="Disb amt"/>
+                                    <label value="Inst #"/>
+                                    <label value="Prn Amt"/>
+                                    <label value="Int Amt"/>
+                                    <label value="Amt Paid"/>
+                                    <label value="A/C Collections"/>
+                                    <label value="Attn"/>
+                                </row>
+                            </rows>
+                        </grid>
+                        <grid id="testgrid" maxheight="250" width="800">
+                            <columns>
+                                <column width="100"/>
+                                <column width="50"/>
+                                <column width="90"/>
+                                <column width="70"/>
+                                <column width="70"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="100"/>
+                            </columns>
+                            <rows id="unsyncedCenterCollectionSheet" style="overflow:auto">
+                            </rows>
+                        </grid>
+                        <grid width="800">
+                            <columns>
+                                <column width="100"/>
+                                <column width="50"/>
+                                <column width="90"/>
+                                <column width="70"/>
+                                <column width="70"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="80"/>
+                                <column width="100"/>
+                            </columns>
+                            <rows id="unsyncedCenterCollectionSheetTotal" height="30">
+                            </rows>
+                        </grid>
+                    </vbox>
+                    <separator/>
+                    <hbox align="right">
+                        <box align="center">
+                            <box class="syncboxgreen" id="unsyncbutton" align="center">
+                                <label value="Sync to Web"/>
+                                <image id="unsyncedSyncButton" src='chrome://flamingo/content/images/icon_sync.png' width='20' height='20'/>
+                            </box>
+                            <button label="Reset"/>
+                            <button label="Save" id="unsyncedSaveButton">
+                            </button>
+                        </box>
+                    </hbox>
+                </box>
+            </hbox>
+        </vbox>
+    </tabpanel>
+</overlay>

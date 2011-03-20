@@ -1,0 +1,110 @@
+1) Todays Loan Officers and Centers-:
+
+<LoanOfficers>
+{
+for $loanOfficer in //CollectionSheet[date='2011-02-23']/LoanOfficers/LoanOfficer
+order by $loanOfficer 
+return <LoanOfficer>
+				<name>{$loanOfficer/name/text()}</name>
+				<personnelId>{$loanOfficer/personnelId/text()}</personnelId>
+				<Centers>
+					{
+						for $center in $loanOfficer/Centers/Center
+						return 
+						<Center>
+							<name>{$center/name/text()}</name>
+							<centerId>{$center/centerId/text()}</centerId>
+						</Center>
+					}
+				</Centers>
+		</LoanOfficer>
+}
+</LoanOfficers>
+
+
+2) Unsynched Dates loan officers and centers-:
+
+<CollectionSheets>
+{
+	for $collectionSheet in (//CollectionSheet[date < '2011-03-23'])
+    order by $collectionSheet/date
+	return
+	<CollectionSheet date="{$collectionSheet/date}">
+		<LoanOfficers>
+		{
+		for $todayLoanOfficers in distinct-values($collectionSheet/LoanOfficers/LoanOfficer/name) 
+		let $loanOfficer := $collectionSheet/LoanOfficers/LoanOfficer[name/text() = $todayLoanOfficers]
+		order by $loanOfficer 
+		return <LoanOfficer>
+						<name>{$todayLoanOfficers}</name>
+						<personnelId>{$loanOfficer/personnelId/text()}</personnelId>
+						<Centers>
+							{
+								for $center in $loanOfficer/Centers/Center
+								return 
+									if(empty($center/status/node()))
+										then
+												<Center>
+													<name>{$center/name/text()}</name>
+													<centerId>{$center/centerId/text()}</centerId>
+												</Center>
+										else
+													null
+							}
+						</Centers>
+				</LoanOfficer>
+		}
+		</LoanOfficers>
+	</CollectionSheet>
+}
+</CollectionSheets>
+
+3)Synched dates loan officers and centers
+
+<CollectionSheets>
+{
+	for $collectionSheet in (//CollectionSheet[date < '2011-03-23'])
+    order by $collectionSheet/date
+	return
+	<CollectionSheet date="{$collectionSheet/date}">
+		<LoanOfficers>
+		{
+		for $todayLoanOfficers in distinct-values($collectionSheet/LoanOfficers/LoanOfficer/name) 
+		let $loanOfficer := $collectionSheet/LoanOfficers/LoanOfficer[name/text() = $todayLoanOfficers]
+		order by $loanOfficer 
+		return <LoanOfficer>
+						<name>{$todayLoanOfficers}</name>
+						<personnelId>{$loanOfficer/personnelId/text()}</personnelId>
+						<Centers>
+							{
+								for $center in $loanOfficer/Centers/Center
+								return 
+									if($center/status/text()="synched")
+										then
+												<Center>
+													<name>{$center/name/text()}</name>
+													<synchedDate>{$center/synchedDate/text()}</synchedDate>
+													<centerId>{$center/centerId/text()}</centerId>
+													<interestDemand>{sum($center/Groups/Group/Members/Member/LoanAccounts/LoanAccount/interestDemand)}</interestDemand>
+											    	<principalDemand>{sum($center/Groups/Group/Members/Member/LoanAccounts/LoanAccount/principalDemand)}</principalDemand>
+											    	<collectedAmount>{sum($center/Groups/Group/Members/Member/LoanAccounts/LoanAccount/amountRepaid)}</collectedAmount>
+											  	    <miscCollections>{sum($center/Groups/Group/Members/Member/LoanAccounts/LoanAccount/miscCollection)}</miscCollections>
+									 		 	</Center>
+									else
+										null
+							}
+						</Centers>
+			   </LoanOfficer>
+		}
+		</LoanOfficers>
+	</CollectionSheet>
+}
+</CollectionSheets>
+
+4) Delete synced centers
+
+for $center in //CollectionSheets/CollectionSheet/LoanOfficers/LoanOfficer/Centers/Center 
+where $center/centerId =" + "'" + settings.centerid + "'" + "and $center/../../../../date='2011-02-23+05:30' 
+return ( 
+   delete node $center
+)

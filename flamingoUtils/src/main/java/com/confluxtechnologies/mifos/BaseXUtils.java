@@ -64,13 +64,13 @@ public class BaseXUtils {
 		return xmlSerializer.read("<result>" + result.toString() + "</result>");
 	}
 
-	/*
-	 * public static void main(String[] args) throws BaseXException,
-	 * QueryException, IOException { System.out.println("Datta"); BaseXUtils
-	 * baseXUtils = new BaseXUtils(); String a = "//Branch";
-	 * System.out.println(a);
-	 * 
-	 * System.out.println(baseXUtils.process(a)); baseXUtils.context.close(); }
-	 */
+	public static void main(String[] args) throws QueryException, IOException {
+		XMLSerializer xmlSerializer = new XMLSerializer();
 
+		System.out
+				.println(xmlSerializer
+						.read("<result>"
+								+ "<unsynceddates>  <usdate value='2011-01-14'>    <locenter>      <cfe>        <lo>          <loid>1001</loid>          <loname>Loan Officer 1</loname>        </lo>        <centers>          <center>            <cid id='0000100001'/>            <cname>Center1</cname>          </center>        </centers>      </cfe>    </locenter>  </usdate>  <usdate value='2011-01-15'>    <locenter>      <cfe>        <lo>          <loid>1002</loid>          <loname>Loan Officer 1</loname>        </lo>        <centers>          <center>            <cid id='0000100002'/>            <cname>Center2</cname>          </center>         <center>            <cid id='0000100003'/>            <cname>Center3</cname>          </center>       </centers>      </cfe>   </locenter>  </usdate></unsynceddates>"
+								+ "</result>"));
+	}
 }

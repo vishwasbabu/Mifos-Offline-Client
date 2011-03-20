@@ -1,12 +1,12 @@
 <?xml version='1.0'?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://flamingo/skin/main.css" type="text/css"?>
-<?xml-stylesheet href="chrome://flamingo/cotent/css/login.css" type="text/css"?>
-<?xul-overlay href="chrome://flamingo/content/todayoverlay.xul"?>
-<?xul-overlay href="chrome://flamingo/content/future.xul"?>
-<?xul-overlay href="chrome://flamingo/content/synced.xul"?>
-<?xul-overlay href="chrome://flamingo/content/unsynced.xul"?>
-<?xul-overlay href="chrome://flamingo/content/login.xul"?>
+<?xml-stylesheet href="chrome://flamingo/content/css/login.css" type="text/css"?>
+<?xml-stylesheet href="chrome://flamingo/content/css/main.css" type="text/css"?>
+<?xul-overlay href="chrome://flamingo/content/todayOverlay.xul"?>
+<?xul-overlay href="chrome://flamingo/content/futureOverlay.xul"?>
+<?xul-overlay href="chrome://flamingo/content/syncedOverlay.xul"?>
+<?xul-overlay href="chrome://flamingo/content/unsyncedOverlay.xul"?>
+<?xul-overlay href="chrome://flamingo/content/loginOverlay.xul"?>
 
 <window
  id="mainwindow"
@@ -17,36 +17,39 @@
  onload="tempInit();"
  sizemode="maximized">
     <!--onload="init();"-->
-    <script type="application/javascript" src="chrome://flamingo/content/js/jquery-1.4.4.min.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/lib/jquery-1.5.1.min.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/lib/jquery.json2xml.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/lib/jquery.xml2json.js"/>
+    
+    <script type="application/javascript" src="chrome://flamingo/content/js/login.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/global.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/main.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/utils.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/collectionsheet.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/centerCollectionSheet.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/popFeCenters.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/jquery.calculation.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/synced.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/popunsyncedFeCenters.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/popfutureFeCenters.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/boot.js"/>
-    <script type="text/javascript" src="chrome://flamingo/content/js/global.js">
-    </script>
+    <script type="application/javascript" src="chrome://flamingo/content/js/populateCenterCollectionSheet.js"/>
+    
+    <script type="application/javascript" src="chrome://flamingo/content/js/today/populateTodaysLOAndCenters.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/synced/populateSyncedLOAndCenters.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/unsynced/populateUnsyncedLOAndCenters.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/future/populateFutureLOAndCenters.js"/>
+    
     <hbox class="parentbox">
         <box>
-            <tabbox id="mainbox" collapsed="true">
+            <tabbox id="mainBox" collapsed="true">
                 <tabs>
-                    <tab label="Synced - History"/>
-                    <tab label="Unsynced - History"/>
-                    <tab label="Today" selected="true"/>
-                    <tab label="Future Date"/>
+                    <tab label="Synced - History" oncommand="$('#syncedCenters').populateSyncedLOAndCenters()"/>
+                    <tab label="Unsynced - History" oncommand="$('#unsyncedLOAndCenters').populateUnsyncedLOAndCenters()"/>
+                    <tab label="Today" selected="true" oncommand=""/>
+                    <tab label="Future Date" oncommand="$('#futureLOAndCenters').populateFutureLOAndCenters()"/>
                 </tabs>
                 <tabpanels>
-                    <tabpanel id="synced" height="500">
+                    <tabpanel id="syncedPanel" height="500">
                     </tabpanel>
-                    <tabpanel id="unsynced" height="500">
+                    <tabpanel id="unsyncedPanel" height="500">
                     </tabpanel>
-                    <tabpanel id="Today">
+                    <tabpanel id="todayPanel">
                     </tabpanel>
-                    <tabpanel id="future">
+                    <tabpanel id="futurePanel">
                     </tabpanel>
                 </tabpanels>
             </tabbox>
@@ -80,7 +83,7 @@
         </box>
         
     </hbox>
-    <vbox flex="1" id="loginhtml">
+    <vbox flex="1" id="login">
         
     </vbox>
     

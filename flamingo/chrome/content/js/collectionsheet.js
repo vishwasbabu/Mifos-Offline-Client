@@ -24,10 +24,10 @@ $.each(obj.LoanOfficer.Centers, function(i, centervalues) {           //looping 
 		treeitem.appendChild(treerow);
 		
 		var centertreechildren = document.createElement("treechildren");
-		alert( 'Center Name : ' + centervalues.name);
+		jsdump( 'Center Name : ' + centervalues.name);
 	
 	$.each(centervalues.Groups, function(j, groupvalues) {
-			alert('Group Name: ' + groupvalues.name);
+			jsdump('Group Name: ' + groupvalues.name);
 			var grouptreeitem = document.createElement("treeitem");
 			grouptreeitem.setAttribute("container","true");
 			grouptreeitem.setAttribute("open","true");		

@@ -1,0 +1,105 @@
+<?xml version='1.0'?>
+<overlay id="loginOverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ xmlns:html="http://www.w3.org/1999/xhtml">
+    
+    <vbox flex="1" id="login" style="border:blue">
+        <box pack="center">
+            <label align="center" value="Flamingo"/>
+        </box>
+        <box pack="center">
+            <label align="center" value="0.1-Preview Release" style="color:grey"/>
+        </box>
+        <html:hr style="color:blue,width:2px">
+        </html:hr>
+        <spacer flex="1">
+        </spacer>
+        <box pack="center">
+            <spacer flex="5">
+            </spacer>
+            <hbox>
+                <image src="chrome://flamingo/content/images/flamingo.jpg">
+                </image>
+            </hbox>
+            <spacer flex="5">
+            </spacer>
+        </box>
+        <spacer flex="1">
+        </spacer>
+        <html:hr style="color:blue,width:2px">
+        </html:hr>
+        <hbox>
+            <spacer flex="3">
+            </spacer>
+            <vbox>
+                <groupbox>
+                    <caption label="Sign in"/>
+                    <grid>
+                        <columns>
+                            <column flex="1"/>
+                            <column flex="2"/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="User name"/>
+                                <textbox id="registerUsername"/>
+                            </row>
+                            <row>
+                                <label value="Password"/>
+                                <textbox id="registerPassword" type="Password">
+                                </textbox>
+                            </row>
+                            <row>
+                                <label value="Mifos URL"/>
+                                <textbox id="mifosURL">
+                                </textbox>
+                            </row>
+                            <row>
+                                <button label="Sign in" style="color: blue; cursor:hand" onclick="signup()" id="registerButton">
+                                </button>
+                            </row>
+                        </rows>
+                    </grid>
+                </groupbox>
+            </vbox>
+            <spacer flex="5">
+            </spacer>
+            <vbox>
+                <groupbox>
+                    <caption label="Log in"/>
+                    <grid>
+                        <columns>
+                            <column flex="1"/>
+                            <column flex="2"/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="User name"/>
+                                <textbox id="username"/>
+                            </row>
+                            <row>
+                                <label value="password"/>
+                                <textbox type="password" id="password">
+                                </textbox>
+                            </row>
+                            <row>
+                                <button label="Lets go!!" style="color: blue; cursor:hand" onclick="authenticate();" id="loginButton">
+                                </button>
+                            </row>
+                        </rows>
+                    </grid>
+                </groupbox>
+            </vbox>
+            <spacer flex="3">
+            </spacer>
+        </hbox>
+        <box pack="center">
+            <image id="loginThrobber" src="chrome://flamingo/content/images/login-loader.gif" class="loginThrobber" style="display:none;"/>
+            <label id="authError" value="Bummer! an error occured...Try Again(cross check username/password)?" class="error" style="display:none;"/>
+        </box>
+        <box pack="center">
+            <label id="userGuide" value="User Guide" style="color: blue; cursor:hand"
+             onmouseover="event.target.style.cursor='pointer'" onmouseout="event.target.style.cursor='default'" onclick="window.open('chrome://flamingo/content/docsWindow.xul','userguide','chrome')"/>
+        </box>
+    </vbox>
+</overlay>

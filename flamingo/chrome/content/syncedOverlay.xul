@@ -1,0 +1,40 @@
+<?xml version='1.0'?>
+<overlay id="syncedOverlay"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <tabpanel id="syncedPanel">
+        <vbox class="syncedmainbox">
+            <box class="syncedcenters" orient="vertical" maxheight="400">
+                <grid id="syncedCentersGrid" width="800">
+                    <columns>
+                        <column width="100"/>
+                        <column width="100"/>
+                        <column width="100"/>
+                        <column width="60"/>
+                        <column width="40"/>
+                        <column width="60"/>
+                        <column width="60"/>
+                        <column width="100"/>
+                        <column width="100"/>
+                    </columns>
+                    <rows id="syncedCenters">
+                        <row flex="1" class="syncedcollectionhd">
+                            <label value="Center Name"/>
+                            <label value="Fe Name"/>
+                            <label value="Meeting date"/>
+                            <label value="Transaction date"/>
+                            <label value="Synced date"/>
+                            <label value="Due amount"/>
+                            <label value="Collected Amount"/>
+                            <label value="Delete"/>
+                            <label value="Select"/>
+                        </row>
+                    </rows>
+                </grid>
+            </box>
+            <separator/>
+            <box align="right">
+                <button label="Delete selected"/>
+            </box>
+        </vbox>
+    </tabpanel>
+</overlay>
