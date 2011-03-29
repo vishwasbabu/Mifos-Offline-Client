@@ -39,7 +39,7 @@
         "										then" +
         "												<Center>" +
         "													<name>{$center/name/text()}</name>" +
-        "													<synchedDate>{$center/synchedDate/text()}</synchedDate>" +
+        "													<synchedDate>{$center/syncedDate/text()}</synchedDate>" +
         "													<centerId>{$center/centerId/text()}</centerId>" +
         "													<interestDemand>{sum($center/Groups/Group/Members/Member/LoanAccounts/LoanAccount/interestDemand)}</interestDemand>" +
         "													<principalDemand>{sum($center/Groups/Group/Members/Member/LoanAccounts/LoanAccount/principalDemand)}</principalDemand>" +
@@ -59,7 +59,7 @@
         
         var syncedCollectionSheets = jQuery.parseJSON(getdata(query).toString());
         
-        
+        var numberOfsyncedCenters = 0;
         
         $.each(syncedCollectionSheets.CollectionSheets, function(i, collectionSheet){
             var meetingDate = collectionSheet["@date"];
@@ -77,6 +77,7 @@
             image.setAttribute("src", "chrome://flamingo/content/images/calendar.png");
             image.setAttribute("width", "16");
             image.setAttribute("height", "16");
+            image.setAttribute("class", "button");
             
             var label = document.createElement("label");
             label.setAttribute("value", meetingDate);
@@ -110,6 +111,7 @@
                     var label = document.createElement("label");
                     label.setAttribute("value", center.centerId);
                     label.setAttribute("style", "display:none");
+                    label.setAttribute("id", "syncedCenterId" + numberOfsyncedCenters);
                     row.appendChild(label);
                     
                     var label = document.createElement("label");
@@ -118,6 +120,8 @@
                     
                     var label = document.createElement("label");
                     label.setAttribute("value", meetingDate);
+                    label.setAttribute("id", "syncedCenterMeetingDate" + numberOfsyncedCenters);
+                    
                     row.appendChild(label);
                     
                     var label = document.createElement("label");
@@ -141,17 +145,23 @@
                     
                     var image = document.createElement("image");
                     image.setAttribute("src", "chrome://flamingo/content/images/delete-icon.png");
-                    image.setAttribute("style", "cursor:pointer");
                     image.setAttribute("width", "16");
                     image.setAttribute("height", "16");
-                    image.setAttribute("onclick", "deleteSyncedCenter('" + center.centerId + "','" + meetingDate + "')");
+                    image.setAttribute("class", "button");
+                    image.setAttribute("onclick", "deleteSingleSyncedCenter('" + center.centerId + "','" + meetingDate + "')");
+                    image.setAttribute("id", "deleteSyncedCenterButton" + numberOfsyncedCenters);
+                    
                     box.appendChild(image);
                     row.appendChild(box);
                     
                     
                     var checkbox = document.createElement("checkbox");
-                    checkbox.setAttribute("checked", "false");
+                    checkbox.setAttribute("id", "markSyncedCenterCheckBox" + numberOfsyncedCenters);
+                    
                     row.appendChild(checkbox);
+                    
+                    //append number of synced centers
+                    numberOfsyncedCenters++;
                     
                     syncrows.appendChild(row);
                 });

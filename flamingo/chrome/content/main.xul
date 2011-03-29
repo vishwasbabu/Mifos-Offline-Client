@@ -14,17 +14,17 @@
  height="700"
  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
  xmlns:html="http://www.w3.org/1999/xhtml"
- onload="tempInit();"
+ onload="init();"
  sizemode="maximized">
     <!--onload="init();"-->
     <script type="application/javascript" src="chrome://flamingo/content/js/lib/jquery-1.5.1.min.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/lib/jquery.json2xml.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/lib/jquery.xml2json.js"/>
     
-    <script type="application/javascript" src="chrome://flamingo/content/js/login.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/global.js"/>
-    <script type="application/javascript" src="chrome://flamingo/content/js/main.js"/>
+    
     <script type="application/javascript" src="chrome://flamingo/content/js/utils.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/global.js"/>
+    <script type="application/javascript" src="chrome://flamingo/content/js/login.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/collectionsheet.js"/>
     <script type="application/javascript" src="chrome://flamingo/content/js/populateCenterCollectionSheet.js"/>
     
@@ -39,7 +39,7 @@
                 <tabs>
                     <tab label="Synced - History" oncommand="$('#syncedCenters').populateSyncedLOAndCenters()"/>
                     <tab label="Unsynced - History" oncommand="$('#unsyncedLOAndCenters').populateUnsyncedLOAndCenters()"/>
-                    <tab label="Today" selected="true" oncommand=""/>
+                    <tab label="Today" selected="true" oncommand="$('#todayLOAndCenters').populateTodaysLOAndCenters();"/>
                     <tab label="Future Date" oncommand="$('#futureLOAndCenters').populateFutureLOAndCenters()"/>
                 </tabs>
                 <tabpanels>

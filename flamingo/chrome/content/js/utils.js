@@ -1,50 +1,19 @@
-
 function init(){
-
-
-    $('#futurecentercollectionsheet').centerCollectionSheet({
-        'centerid': '0000100004'
-    });
-    
-    $('#futurelocenter').futureloanOffCenter();
-    
-    $('#syncedcenters').syncedCenters();
-    
-    $('#unsyncedlocenter').unsynedloanOffCenter();
-    
-    $('#unsyncedcentercollectionsheet').centerCollectionSheet({
-        'centerid': '0000100004'
-    });
-    
-    $('#todaygetdata').toggle('showOrHide');
-    $('#futuregetdata').toggle('showOrHide');
-    
-    $('#centercollectionsheet').centerCollectionSheet({
-        'centerid': '0000100004'
-    });
-    
-    
-    $('#todaylocenter').loanOffCenter();
-    
-    var condition = navigator.onLine ? "syncboxgreen" : "syncboxred";
-    document.getElementById('syncbutton').setAttribute("class", condition);
-    
-    //		document.getElementById('todaydaterpt').value = new Date();
-    //		document.getElementById('todaydatetrx').value = new Date();
-
-};
-
-
-
-function tempInit(){
+    alert("init");
+    temp();
     setUpJavaDependencies();
-    $('#todayLOAndCenters').populateTodaysLOAndCenters();
-    /**set the color of sync button**/
+    
+    /**set the color of sync button (something wrong here....TODO)**/
     var condition = navigator.onLine ? "syncboxgreen" : "syncboxred";
-    document.getElementById('syncButton').setAttribute("class", condition);
+    document.getElementById('unsyncedSyncButton').setAttribute("class", condition);
+    document.getElementById('todaySyncButton').setAttribute("class", condition);
+    
+    /***populate todays collection sheet***/
+    $('#todayLOAndCenters').populateTodaysLOAndCenters();
+    
+    
     
     /****save and sync actions**/
-    alert("datta");
     $("#unsyncedSaveButton").click(function(){
         saveCenterCollectionSheet('unsynced', false, $('#unsyncedMeetingDate').val());
     });
@@ -53,17 +22,29 @@ function tempInit(){
         saveCenterCollectionSheet('unsynced', true, $('#unsyncedMeetingDate').val());
     });
     
+    $("#todaySaveButton").click(function(){
+        saveCenterCollectionSheet('today', false, $('#todayMeetingDate').val());
+    });
+    $("#todaySyncButton").click(function(){
+        alert("datta");
+        saveCenterCollectionSheet('today', true, $('#todayMeetingDate').val());
+    });
+    
 }
 
-function onTreeClicked(event){
-    var tree = document.getElementById("my-tree");
-    var tbo = tree.treeBoxObject;
+function temp(){
+    alert("hello");
+    var t = '<CollectionSheets><CollectionSheet><date>2011-03-18</date><branchName>Gulbarga</branchName><LoanOfficers><LoanOfficer><name>Sathish K</name><personnelId>1</personnelId></LoanOfficer></LoanOfficers></CollectionSheet></CollectionSheets>';
     
-    var row = {}, col = {}, child = {};
-    tbo.getCellAt(event.clientX, event.clientY, row, col, child);
-    
-    var cellText = tree.view.getCellText(row.value, col.value);
-    $('#centercollectionsheet').centerCollectionSheet(cellText);
+    var xmlObject = (new DOMParser()).parseFromString(t, "application/xml");
+    var xmlString = (new XMLSerializer()).serializeToString(xmlObject);
+    var b = xmlObject.getElementsByTagName("LoanOfficer")[0];
+    alert(b.childNodes[1].childNodes[0].nodeValue);
+    alert((new XMLSerializer()).serializeToString(b));
+}
+
+function datta(){
+
 }
 
 function getTodaysDate(){
@@ -77,6 +58,38 @@ function getTodaysDate(){
     return todayDate;
 }
 
+function getCollectionSheet(date, dropDownId){
+    //ensure this data is not already fetched
+    alert(date);
+    if (document.getElementById(dropDownId).selectedItem == null) {
+        alert("please select a Loan Officer");
+        return;
+    }
+    var personnelId = document.getElementById(dropDownId).selectedItem.value;
+    var query = "boolean(//CollectionSheet[date='" + date + "']/LoanOfficers/LoanOfficer[personnelId=" + personnelId + "])"
+    
+    alert("result" + getStringData(query));
+    if (getStringData(query) == "false") {
+        MifosServer.getCollectionSheet(date, personnelId);
+    }
+    else {
+        alert("This loan officers collection sheet is already fetched");
+    }
+}
+
+function getLoanOfficers(dropDownId){
+    var menuList = document.getElementById(dropDownId);
+    //check if menulist has childres
+    if (menuList.hasChildNodes()) {
+        //do nothing
+    }
+    else {
+        result = MifosServer.getLoanOfficers();
+        if (result == false) {
+            alert("unable to get Loan Officers, please check your internet connection");
+        }
+    }
+}
 
 function centerTotal(idPrefix){
     jsdump("calculating the center Total with idPrefix " + idPrefix);
@@ -235,7 +248,7 @@ function saveCenterCollectionSheet(idPrefix, performSync, meetingDate){
     
     /***for sync upload to server**/
     if (performSync) {
-        alert("Unable to upload to server....please save for now,try syncing again later");
+        alert("Actual sync endpoint not available....for demo purposes, this record shall be marked as synced");
     }
     
     //save the result
@@ -253,12 +266,40 @@ function saveCenterCollectionSheet(idPrefix, performSync, meetingDate){
     //execute the query
     updateXMLDB(query);
     
+    if (performSync) {
+        //remove center from original tab
+        var richchildren;
+        if (idPrefix == "today") {
+            alert("illi datta");
+            $('#todayLOAndCenters').populateTodaysLOAndCenters();
+            richchildren = $("#todayCenterCollectionsheet").get(0);
+        }
+        else {
+            $('#unsyncedLOAndCenters').populateUnsyncedLOAndCenters();
+            alert("guru");
+            alert($("#unsyncedCenterCollectionSheet").get(0));
+            richchildren = $("#unsyncedCenterCollectionSheet").get(0);
+        }
+        alert(richchildren.getAttribute("id") + "Total");
+        var centertotal = document.getElementById(richchildren.getAttribute("id") + "Total");
+        while (richchildren.hasChildNodes()) {
+            richchildren.removeChild(richchildren.firstChild);
+        }
+        while (centertotal.hasChildNodes()) {
+            centertotal.removeChild(centertotal.firstChild);
+        }
+    }
+    
 }
 
 
+function deleteSingleSyncedCenter(centerId, meetingDate){
+    deleteSyncedCenter(centerId, meetingDate)
+    //refresh tab to remove deleted center
+    $('#syncedCenters').populateSyncedLOAndCenters();
+}
+
 function deleteSyncedCenter(centerId, meetingDate){
-
-
     var query = "for $center in //CollectionSheets/CollectionSheet/LoanOfficers/LoanOfficer/Centers/Center " +
     "where $center/centerId =" +
     "'" +
@@ -274,14 +315,40 @@ function deleteSyncedCenter(centerId, meetingDate){
     updateXMLDB(query);
 }
 
+function deleteMarkedSyncedCenters(){
+    for (i = 0; i < 10000; i++) {
+        var syncedCenterCheckBox = "markSyncedCenterCheckBox" + i;
+        var deleteSyncedCenterButton = "deleteSyncedCenterButton" + i;
+        var syncedCenterId = "syncedCenterId" + i
+        var syncedCenterMeetingDate = "syncedCenterMeetingDate" + i
+        if (document.getElementById(syncedCenterCheckBox) != null) {
+            var a = document.getElementById(syncedCenterCheckBox);
+            if ($("#" + syncedCenterCheckBox).attr("checked")) {
+                //delete this synced center
+                deleteSyncedCenter($("#" + syncedCenterId).val(), $("#" + syncedCenterMeetingDate).val());
+            }
+        }
+        else {
+            break;
+        }
+    } //refresh tab to remove deleted center
+    $('#syncedCenters').populateSyncedLOAndCenters();
+}
+
 function getdata(query){
-    return baseXUtils.process(query);
+    jsdump("executing query " + query)
+    return baseXUtils.getJSONResult(query);
 }
 
 function updateXMLDB(query){
-    return baseXUtils.process(query);
+    jsdump("executing update " + query)
+    return baseXUtils.getStringResult(query);
 }
 
+function getStringData(query){
+    jsdump("executing query " + query)
+    return baseXUtils.getStringResult(query);
+}
 
 /**Poor man's logger**/
 function jsdump(str){
@@ -356,7 +423,3 @@ function setUpJavaDependencies(){
     var initStatus = baseXUtils.init();
     jsdump("Able to Initialized DB ? " + initStatus);
 }
-
-
-
-

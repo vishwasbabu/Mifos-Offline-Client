@@ -10,6 +10,7 @@ return <LoanOfficer>
 				<Centers>
 					{
 						for $center in $loanOfficer/Centers/Center
+						where empty($center/status/node())
 						return 
 						<Center>
 							<name>{$center/name/text()}</name>
@@ -83,7 +84,7 @@ return <LoanOfficer>
 										then
 												<Center>
 													<name>{$center/name/text()}</name>
-													<synchedDate>{$center/synchedDate/text()}</synchedDate>
+													<syncedDate>{$center/synchedDate/text()}</synchedDate>
 													<centerId>{$center/centerId/text()}</centerId>
 													<interestDemand>{sum($center/Groups/Group/Members/Member/LoanAccounts/LoanAccount/interestDemand)}</interestDemand>
 											    	<principalDemand>{sum($center/Groups/Group/Members/Member/LoanAccounts/LoanAccount/principalDemand)}</principalDemand>
@@ -108,3 +109,37 @@ where $center/centerId =" + "'" + settings.centerid + "'" + "and $center/../../.
 return ( 
    delete node $center
 )
+
+
+5) Check if collection sheet for a given date exists (XPATH)
+
+boolean(//CollectionSheet[date="2011-03-18"])
+
+6) Check if record for a feild executive with selected personnel Id  for a given day exists
+
+boolean(//CollectionSheet[date="2011-03-18"]/LoanOfficers/LoanOfficer[personnelId=1])
+
+7) Update modified center xml
+
+for $center in //CollectionSheets/CollectionSheet/LoanOfficers/LoanOfficer/Centers/Center where $center/centerId ='3'
+and $center/../../../../date='2010-03-11' 
+return ( delete node $center, 
+		insert node "centerXML" as first into $center/..);
+		
+8) Add a new CollectionSheet (for a particular day)
+
+for $collectionSheets in //CollectionSheets
+return (insert node <CollectionSheet><date>2011-03-18</date><branchName>Gulbarga</branchName><LoanOfficers><LoanOfficer><name>Sathish K</name><personnelId>1</personnelId></LoanOfficer></LoanOfficers></CollectionSheet>
+       as first into $collectionSheets)
+
+
+9) Add a new Loan Officer for a Collection Sheet
+
+for $loanOfficers in //CollectionSheet[date="2011-03-18"]/LoanOfficers
+return (insert node <LoanOfficer><name>VishwasBabu</name><personnelId>2</personnelId></LoanOfficer>
+as first into $loanOfficers)
+
+
+
+
+

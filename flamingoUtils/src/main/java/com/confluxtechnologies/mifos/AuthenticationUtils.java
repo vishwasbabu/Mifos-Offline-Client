@@ -9,12 +9,13 @@ import java.security.MessageDigest;
 public class AuthenticationUtils {
 	MessageDigest messageDigest = null;
 	CacheUtils cacheUtils;
+	private static final String MIFOSURL = "mifosURL";
 
 	public boolean authenticateUser(String userName, String password) {
 		try {
 			initializeCacheUtils();
 			// get hashed password for the username
-			String storedHash = cacheUtils.getPasswordFromCache(userName);
+			String storedHash = cacheUtils.getValueForKey(userName);
 			String inputHash = AuthenticationUtils.computeHash(password);
 			if (storedHash.equals(inputHash)) {
 				return true;
@@ -25,15 +26,20 @@ public class AuthenticationUtils {
 		}
 	}
 
-	public boolean addUser(String userName, String password) {
+	public boolean addUser(String userName, String password, String mifosURL) {
 		try {
 			initializeCacheUtils();
 			cacheUtils.updateCache(userName,
-					AuthenticationUtils.computeHash(password));
+					AuthenticationUtils.computeHash(password), MIFOSURL,
+					mifosURL);
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	public String getRegisteredMifosServerURL() {
+		return cacheUtils.getValueForKey(MIFOSURL);
 	}
 
 	private void initializeCacheUtils() throws IOException {
@@ -62,11 +68,4 @@ public class AuthenticationUtils {
 		return sb.toString().toUpperCase();
 	}
 
-	public static void main(String[] args) {
-		AuthenticationUtils authenticationUtils = new AuthenticationUtils();
-		System.out
-				.println(authenticationUtils.addUser("vishwas", "dattatreya"));
-		System.out.println(authenticationUtils.authenticateUser("vishwas",
-				"rama"));
-	}
 }

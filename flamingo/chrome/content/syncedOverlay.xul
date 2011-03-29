@@ -26,14 +26,14 @@
                             <label value="Due amount"/>
                             <label value="Collected Amount"/>
                             <label value="Delete"/>
-                            <label value="Select"/>
+                            <label value="Mark"/>
                         </row>
                     </rows>
                 </grid>
             </box>
             <separator/>
             <box align="right">
-                <button label="Delete selected"/>
+                <button label="Delete Marked" onclick="deleteMarkedSyncedCenters()"/>
             </box>
         </vbox>
     </tabpanel>

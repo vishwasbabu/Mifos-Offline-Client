@@ -33,7 +33,7 @@
             </spacer>
             <vbox>
                 <groupbox>
-                    <caption label="Sign in"/>
+                    <caption label="Sign in" class="h1"/>
                     <grid>
                         <columns>
                             <column flex="1"/>
@@ -42,21 +42,34 @@
                         <rows>
                             <row>
                                 <label value="User name"/>
-                                <textbox id="registerUsername"/>
+                                <textbox id="registerUsername" width="100px"/>
                             </row>
                             <row>
                                 <label value="Password"/>
                                 <textbox id="registerPassword" type="Password">
                                 </textbox>
                             </row>
+                        </rows>
+                    </grid>
+                    <grid>
+                        <columns>
+                            <column flex="1"/>
+                            <column flex="2"/>
+                        </columns>
+                        <rows>
                             <row>
                                 <label value="Mifos URL"/>
-                                <textbox id="mifosURL">
+                                <textbox id="mifosURL" width="300px">
                                 </textbox>
                             </row>
                             <row>
-                                <button label="Sign in" style="color: blue; cursor:hand" onclick="signup()" id="registerButton">
-                                </button>
+                                <label/>
+                                <box>
+                                    <label flex="1">
+                                    </label>
+                                    <button label="Sign in" class="button" onclick="signup()" id="registerButton">
+                                    </button>
+                                </box>
                             </row>
                         </rows>
                     </grid>
@@ -66,7 +79,7 @@
             </spacer>
             <vbox>
                 <groupbox>
-                    <caption label="Log in"/>
+                    <caption label="Log in" class="h1"/>
                     <grid>
                         <columns>
                             <column flex="1"/>
@@ -83,8 +96,14 @@
                                 </textbox>
                             </row>
                             <row>
-                                <button label="Lets go!!" style="color: blue; cursor:hand" onclick="authenticate();" id="loginButton">
-                                </button>
+                                <label/>
+                                <box>
+                                    <label flex="1">
+                                    </label>
+                                    
+                                    <button label="Lets go!!" class="button" onclick="authenticate();" id="loginButton" width="3px">
+                                    </button>
+                                </box>
                             </row>
                         </rows>
                     </grid>

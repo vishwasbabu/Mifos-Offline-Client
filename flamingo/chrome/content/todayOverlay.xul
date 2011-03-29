@@ -7,22 +7,16 @@
         <vbox class="todaymainbox">
             <vbox>
                 <box align="center">
-                    <image onclick="$('#getTodaysData').toggle('showOrHide ');" src='chrome://flamingo/content/images/down_icon.gif' width='25' height='25'/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
+                    <image onclick="$('#getTodaysData').toggle('showOrHide ');" src='chrome://flamingo/content/images/down_icon.gif' width='25' height='25' class="button"/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
                 </box>
                 <hbox id="getTodaysData" height="60">
                     <box align="center">
                         <label value="Date"/>
                         <datepicker id="todaydate" type="popup" value="" readonly="true"/>
                         <label value="Loan Officer"/>
-                        <menulist label="attn">
-                            <menupopup>
-                                <menuitem label="Raja"/>
-                                <menuitem label="Thomas"/>
-                                <menuitem label="Arun" selected="true"/>
-                                <menuitem label="Ayaz"/>
-                            </menupopup>
+                        <menulist label="Select One" onclick="getLoanOfficers('todayLoanOfficerDropDown')" id="todayLoanOfficerDropDown">
                         </menulist>
-                        <image onclick="alert('need to write action');" src='chrome://flamingo/content/images/download.png' width='36' height='36'/>
+                        <image src='chrome://flamingo/content/images/download.png' onclick="getCollectionSheet(getTodaysDate(),'todayLoanOfficerDropDown')" width='36' height='36' class="button"/>
                     </box>
                 </hbox>
                 <hbox align="center" style="padding: 5px;">
@@ -30,7 +24,7 @@
                 
             </vbox>
             <hbox>
-                <vbox class="futurelocenter" orient="vertical" width="200" height="500">
+                <vbox class="futurelocenter" orient="vertical" width="275" height="600" style="overflow:auto">
                     <grid id="todayLOAndCentersGrid" width="800">
                         <columns>
                             <column width="170"/>
@@ -41,7 +35,7 @@
                     </grid>
                 </vbox>
                 
-                <box orient="vertical" height="500" width="800">
+                <box orient="vertical" height="500" width="800" class="sidebox">
                     <box orient="vertical" width="800">
                         <groupbox class="todaycollectionrb groove">
                             <caption class="h2" label="Center Details"/>
@@ -151,12 +145,12 @@
                     <separator/>
                     <hbox align="right">
                         <box align="center">
-                            <box class="syncboxgreen" id="syncButton" align="center">
+                            <box id="todaySyncButton" align="center">
                                 <label value="Sync to Web"/>
                                 <image onclick="alert('need to write action');" src='chrome://flamingo/content/images/icon_sync.png' width='20' height='20'/>
                             </box>
-                            <button label="Reset"/>
-                            <button label="Save" onclick="saveCenterCollectionSheet('today',false,document.getElementById('todayMeetingDate').value());">
+                            <button label="Reset" class="button"/>
+                            <button label="Save" class="button" onclick="saveCenterCollectionSheet('today',false,document.getElementById('todayMeetingDate').value());">
                             </button>
                         </box>
                     </hbox>

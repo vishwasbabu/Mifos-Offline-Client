@@ -209,8 +209,17 @@ padding-left:50px;
   }
   
  .futurelocenter{
-	margin:5px;
+	margin:3px;
 	-moz-border-radius: 8px;
 	border:1px solid;
 	border-color:#D8D8D8;
+	
+ }
+ 
+ .sidebox{
+ 	margin:20px
+ }
+ 
+ .button {
+	cursor:pointer;
  }

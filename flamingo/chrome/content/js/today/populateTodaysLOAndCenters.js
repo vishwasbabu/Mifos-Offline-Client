@@ -8,6 +8,9 @@
         var curr_year = d.getFullYear();
         var todayDate = curr_year + "-" + curr_month + "-" + curr_date;
         
+        /***delete all previous data**/
+        $(this).empty();
+        
         var rows = $(this).get(0);
         
         /*    var qr =  '<locenter>{for $d in distinct-values(/xmldb/centers/center/cfe/@empid) let $items := /xmldb/centers/center[cfe/@empid = $d and  meetingdate/text() = "' + todayDate + '"] order by $d  return if (exists($items)) then (  <cfe><lo><loid>{$d}</loid><loname>{distinct-values($items/cfe/text())}</loname ></lo><centers>{ for  $i  in $items order by $i return <center><cid>{$i/@id}</cid><cname>{$i/cname/text()} </cname></center> }</centers></cfe> ) else () } </locenter> '	*/
@@ -26,6 +29,7 @@
         "				<Centers>" +
         "					{" +
         "						for $center in $loanOfficer/Centers/Center" +
+        "						where empty($center/status/node())" +
         "						return " +
         "						<Center>" +
         "							<name>{$center/name/text()}</name>" +
@@ -52,6 +56,7 @@
             var image = document.createElement("image");
             image.setAttribute("onclick", "$('#" + loanofficers.personnelId + "').toggle('showOrHide');");
             image.setAttribute("src", "chrome://flamingo/content/images/icon.collapse.png");
+            image.setAttribute("class", "button");
             /****/
             $(image).toggle(function(){
                 $(this).attr('src', "chrome://flamingo/content/images/icon.expand.png");

@@ -7,7 +7,7 @@
         
         <vbox class="todaymainbox">
             <hbox>
-                <vbox class="futurelocenter" orient="vertical" width="200" height="500">
+                <vbox class="futurelocenter" orient="vertical" width="275" height="600" style="overflow:auto">
                     <grid id="testgrid" width="800">
                         <columns>
                             <column width="170"/>
@@ -18,7 +18,7 @@
                     </grid>
                 </vbox>
                 
-                <box orient="vertical" height="500" width="800">
+                <box orient="vertical" height="600" width="800" class="sidebox">
                     <box orient="vertical" width="800">
                         <groupbox class="todaycollectionrb">
                             <caption class="h2" label="Center Details"/>
@@ -94,7 +94,7 @@
                                 </row>
                             </rows>
                         </grid>
-                        <grid id="testgrid" maxheight="250" width="800">
+                        <grid id="testgrid" maxheight="350" width="800">
                             <columns>
                                 <column width="100"/>
                                 <column width="50"/>
@@ -128,12 +128,12 @@
                     <separator/>
                     <hbox align="right">
                         <box align="center">
-                            <box class="syncboxgreen" id="unsyncbutton" align="center">
+                            <box id="unsyncedSyncButton" align="center" style="cursor:pointer;">
                                 <label value="Sync to Web"/>
-                                <image id="unsyncedSyncButton" src='chrome://flamingo/content/images/icon_sync.png' width='20' height='20'/>
+                                <image id="unsyncedSyncButtonImage" src='chrome://flamingo/content/images/icon_sync.png' width='20' height='20'/>
                             </box>
-                            <button label="Reset"/>
-                            <button label="Save" id="unsyncedSaveButton">
+                            <button label="Reset" class="button"/>
+                            <button label="Save" id="unsyncedSaveButton" class="button">
                             </button>
                         </box>
                     </hbox>

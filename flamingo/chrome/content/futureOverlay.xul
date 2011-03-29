@@ -7,34 +7,16 @@
         <vbox class="futuremainbox">
             <vbox>
                 <box align="center">
-                    <image onclick="$('#getFutureData').toggle('showOrHide');" src='chrome://flamingo/content/images/down_icon.gif' width='25' height='25'/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
+                    <image class="button" onclick="$('#getFutureData').toggle('showOrHide');" src='chrome://flamingo/content/images/down_icon.gif' width='25' height='25'/><label style="font-size: 15px; padding: 5px;" value="Get data from server"/>
                 </box>
                 <hbox id="getFutureData" height="60">
                     <box align="center">
-                        <label value="For the next"/>
-                        <menulist label="days">
-                            <menupopup>
-                                <menuitem label="1" selected="true"/>
-                                <menuitem label="2"/>
-                                <menuitem label="3"/>
-                                <menuitem label="4"/>
-                                <menuitem label="5"/>
-                                <menuitem label="6"/>
-                                <menuitem label="7"/>
-                            </menupopup>
-                        </menulist>
-                        <label value="day(s)"/>
-                        <!--<datepicker id="todaydate" type="popup" value="" readonly="true"/>-->
+                        <label value="Date"/>
+                        <datepicker id="todaydate" type="popup" value=""/>
                         <label value="Loan Officer"/>
-                        <menulist label="attn">
-                            <menupopup>
-                                <menuitem label="Raja"/>
-                                <menuitem label="Thomas"/>
-                                <menuitem label="Arun" selected="true"/>
-                                <menuitem label="Ayaz"/>
-                            </menupopup>
+                        <menulist label="Select One" onclick="getLoanOfficers('futureLoanOfficerDropDown')" id="futureLoanOfficerDropDown">
                         </menulist>
-                        <image onclick="alert('need to write action');" src='chrome://flamingo/content/images/download.png' width='36' height='36'/>
+                        <image onclick="alert('need to write action');" src='chrome://flamingo/content/images/download.png' class="button" width='36' height='36'/>
                     </box>
                 </hbox>
                 <hbox align="center" style="padding: 5px;">
@@ -42,7 +24,7 @@
                 
             </vbox>
             <hbox>
-                <vbox class="futurelocenter" orient="vertical" width="200" maxheight="500">
+                <vbox class="futurelocenter" orient="vertical" width="275" height="600" style="overflow:auto">
                     <grid id="futureLOAndCentersGrid" width="200">
                         <columns>
                             <column width="170"/>
@@ -53,7 +35,7 @@
                     </grid>
                 </vbox>
                 
-                <box orient="vertical" height="500" width="800">
+                <box orient="vertical" height="500" width="800" class="sidebox">
                     <box orient="vertical" width="800">
                         <groupbox class="todaycollectionrb">
                             <caption class="h2" label="Center Details"/>

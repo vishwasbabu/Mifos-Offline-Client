@@ -24,8 +24,9 @@ public class BaseXUtils {
 			if (!new List().execute(context).contains("flamingo")) {
 				// Create Flamingo DB
 				System.out.println("\n* Create a database.");
-				new CreateDB("flamingo",
-						"<Branch><name>Uninitialized</name><Personnels></Personnels></Branch>")
+				new CreateDB(
+						"flamingo",
+						"<Branch><name>Uninitialized</name><CollectionSheets></CollectionSheets></Branch>")
 						.execute(context);
 			}
 			new Open("flamingo").execute(context);
@@ -43,7 +44,8 @@ public class BaseXUtils {
 		context.close();
 	}
 
-	public JSON process(final String query) throws QueryException, IOException {
+	public JSON getJSONResult(final String query) throws QueryException,
+			IOException {
 		// ------------------------------------------------------------------------
 		// Create a query processor
 		QueryProcessor proc = new QueryProcessor(query, context);
@@ -64,13 +66,24 @@ public class BaseXUtils {
 		return xmlSerializer.read("<result>" + result.toString() + "</result>");
 	}
 
-	public static void main(String[] args) throws QueryException, IOException {
-		XMLSerializer xmlSerializer = new XMLSerializer();
+	public String getStringResult(final String query) throws QueryException,
+			IOException {
+		// ------------------------------------------------------------------------
+		// Create a query processor
+		QueryProcessor proc = new QueryProcessor(query, context);
 
-		System.out
-				.println(xmlSerializer
-						.read("<result>"
-								+ "<unsynceddates>  <usdate value='2011-01-14'>    <locenter>      <cfe>        <lo>          <loid>1001</loid>          <loname>Loan Officer 1</loname>        </lo>        <centers>          <center>            <cid id='0000100001'/>            <cname>Center1</cname>          </center>        </centers>      </cfe>    </locenter>  </usdate>  <usdate value='2011-01-15'>    <locenter>      <cfe>        <lo>          <loid>1002</loid>          <loname>Loan Officer 1</loname>        </lo>        <centers>          <center>            <cid id='0000100002'/>            <cname>Center2</cname>          </center>         <center>            <cid id='0000100003'/>            <cname>Center3</cname>          </center>       </centers>      </cfe>   </locenter>  </usdate></unsynceddates>"
-								+ "</result>"));
+		// ------------------------------------------------------------------------
+		// Execute the query
+		Result result = proc.execute();
+
+		// ------------------------------------------------------------------------
+		// Print result as string.
+		System.out.println(result);
+
+		// ------------------------------------------------------------------------
+		// Close the query processor
+		proc.close();
+		return result.toString();
 	}
+
 }

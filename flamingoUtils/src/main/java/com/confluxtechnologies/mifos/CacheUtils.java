@@ -24,14 +24,16 @@ public class CacheUtils {
 		cache.load(new FileInputStream(file));
 	}
 
-	public void updateCache(String username, String password)
-			throws FileNotFoundException, IOException {
+	public void updateCache(String username, String password,
+			String mifosURLKey, String mifosURL) throws FileNotFoundException,
+			IOException {
 		cache.setProperty(username, password);
+		cache.setProperty(mifosURLKey, mifosURL);
 		cache.store(new FileOutputStream(
 				new File(PATHNAME + "/" + USERFILENAME)), null);
 	}
 
-	public String getPasswordFromCache(String username) {
+	public String getValueForKey(String username) {
 		return cache.get(username).toString();
 	}
 

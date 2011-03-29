@@ -84,6 +84,7 @@
                 var image = document.createElement("image");
                 image.setAttribute("onclick", "$('#" + rowsfeid + "').toggle('showOrHide');");
                 image.setAttribute("src", "chrome://flamingo/content/images/icon.collapse.png");
+                image.setAttribute("class", "button");
                 $(image).toggle(function(){
                     $(this).attr('src', "chrome://flamingo/content/images/icon.expand.png");
                 }, function(){
