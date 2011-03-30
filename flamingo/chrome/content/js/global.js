@@ -52,7 +52,7 @@ var MifosServer = {
             return false;
         }
         var req = new XMLHttpRequest();
-        jsdump("getting all loan Officers in the branch");
+        jsdump("getting collectionsheet for personnel " + personnelId + " for date " + date);
         req.open('GET', mifosURL + "/branchid/" + Ctx.branchId + "/date/" + date + "/loanofficer/" + personnelId + "/collectionsheet", false);
         req.setRequestHeader('Authentication-Key', Ctx.token);
         req.setRequestHeader('Accept', 'application/xml');
@@ -135,10 +135,9 @@ function setContext(username, password, token, officeId){
 }
 
 function checkLogin(){
-    jsdump("check if this user has logged in");
-    alert("token" + Ctx.token + "mifosURL" + mifosURL);
+    jsdump("check if this user has logged in", "token" + Ctx.token + "mifosURL" + mifosURL);
     if (Ctx.token == "") {
-        alert("token was empty");
+        jsdump("token was empty, attempting login");
         var loginSuccessfull = MifosServer.login(Ctx.user, Ctx.password);
         if (!loginSuccessfull) {
             alert("Unable to authenticate this user on the Server...have you changed your password recently?")

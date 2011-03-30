@@ -12,11 +12,11 @@
                 <hbox id="getFutureData" height="60">
                     <box align="center">
                         <label value="Date"/>
-                        <datepicker id="todaydate" type="popup" value=""/>
+                        <datepicker id="futureDate" type="popup" value=""/>
                         <label value="Loan Officer"/>
                         <menulist label="Select One" onclick="getLoanOfficers('futureLoanOfficerDropDown')" id="futureLoanOfficerDropDown">
                         </menulist>
-                        <image onclick="alert('need to write action');" src='chrome://flamingo/content/images/download.png' class="button" width='36' height='36'/>
+                        <image onclick="getCollectionSheet($('#futureDate').val(),'futureLoanOfficerDropDown')" src='chrome://flamingo/content/images/download.png' class="button" width='36' height='36'/>
                     </box>
                 </hbox>
                 <hbox align="center" style="padding: 5px;">
@@ -24,7 +24,7 @@
                 
             </vbox>
             <hbox>
-                <vbox class="futurelocenter" orient="vertical" width="275" height="600" style="overflow:auto">
+                <vbox class="futurelocenter" orient="vertical" width="275" height="400" style="overflow:auto">
                     <grid id="futureLOAndCentersGrid" width="200">
                         <columns>
                             <column width="170"/>

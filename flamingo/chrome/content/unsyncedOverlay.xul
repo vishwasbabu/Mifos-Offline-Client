@@ -7,7 +7,7 @@
         
         <vbox class="todaymainbox">
             <hbox>
-                <vbox class="futurelocenter" orient="vertical" width="275" height="600" style="overflow:auto">
+                <vbox class="futurelocenter" orient="vertical" width="275" height="400" style="overflow:auto">
                     <grid id="testgrid" width="800">
                         <columns>
                             <column width="170"/>

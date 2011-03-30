@@ -1,6 +1,5 @@
 function init(){
-    alert("init");
-    temp();
+
     setUpJavaDependencies();
     
     /**set the color of sync button (something wrong here....TODO)**/
@@ -18,7 +17,6 @@ function init(){
         saveCenterCollectionSheet('unsynced', false, $('#unsyncedMeetingDate').val());
     });
     $("#unsyncedSyncButton").click(function(){
-        alert("datta");
         saveCenterCollectionSheet('unsynced', true, $('#unsyncedMeetingDate').val());
     });
     
@@ -26,25 +24,9 @@ function init(){
         saveCenterCollectionSheet('today', false, $('#todayMeetingDate').val());
     });
     $("#todaySyncButton").click(function(){
-        alert("datta");
         saveCenterCollectionSheet('today', true, $('#todayMeetingDate').val());
     });
     
-}
-
-function temp(){
-    alert("hello");
-    var t = '<CollectionSheets><CollectionSheet><date>2011-03-18</date><branchName>Gulbarga</branchName><LoanOfficers><LoanOfficer><name>Sathish K</name><personnelId>1</personnelId></LoanOfficer></LoanOfficers></CollectionSheet></CollectionSheets>';
-    
-    var xmlObject = (new DOMParser()).parseFromString(t, "application/xml");
-    var xmlString = (new XMLSerializer()).serializeToString(xmlObject);
-    var b = xmlObject.getElementsByTagName("LoanOfficer")[0];
-    alert(b.childNodes[1].childNodes[0].nodeValue);
-    alert((new XMLSerializer()).serializeToString(b));
-}
-
-function datta(){
-
 }
 
 function getTodaysDate(){
@@ -60,7 +42,7 @@ function getTodaysDate(){
 
 function getCollectionSheet(date, dropDownId){
     //ensure this data is not already fetched
-    alert(date);
+    jsdump("fetching collectionsheet for date " + date);
     if (document.getElementById(dropDownId).selectedItem == null) {
         alert("please select a Loan Officer");
         return;
@@ -68,12 +50,19 @@ function getCollectionSheet(date, dropDownId){
     var personnelId = document.getElementById(dropDownId).selectedItem.value;
     var query = "boolean(//CollectionSheet[date='" + date + "']/LoanOfficers/LoanOfficer[personnelId=" + personnelId + "])"
     
-    alert("result" + getStringData(query));
     if (getStringData(query) == "false") {
         MifosServer.getCollectionSheet(date, personnelId);
     }
     else {
-        alert("This loan officers collection sheet is already fetched");
+        alert("This loan officers collection sheet is aready locally available");
+    }
+    
+    /**if things were sucessfull, refresh the source page**/
+    if (dropDownId == "todayLoanOfficerDropDown") {
+        $('#todayLOAndCenters').populateTodaysLOAndCenters();
+    }
+    else {
+        $('#futureLOAndCenters').populateFutureLOAndCenters();
     }
 }
 
@@ -248,7 +237,7 @@ function saveCenterCollectionSheet(idPrefix, performSync, meetingDate){
     
     /***for sync upload to server**/
     if (performSync) {
-        alert("Actual sync endpoint not available....for demo purposes, this record shall be marked as synced");
+        alert("Actual sync endpoint not exposed....for demo purposes, this record shall be marked as synced");
     }
     
     //save the result
@@ -270,17 +259,13 @@ function saveCenterCollectionSheet(idPrefix, performSync, meetingDate){
         //remove center from original tab
         var richchildren;
         if (idPrefix == "today") {
-            alert("illi datta");
             $('#todayLOAndCenters').populateTodaysLOAndCenters();
             richchildren = $("#todayCenterCollectionsheet").get(0);
         }
         else {
             $('#unsyncedLOAndCenters').populateUnsyncedLOAndCenters();
-            alert("guru");
-            alert($("#unsyncedCenterCollectionSheet").get(0));
             richchildren = $("#unsyncedCenterCollectionSheet").get(0);
         }
-        alert(richchildren.getAttribute("id") + "Total");
         var centertotal = document.getElementById(richchildren.getAttribute("id") + "Total");
         while (richchildren.hasChildNodes()) {
             richchildren.removeChild(richchildren.firstChild);
