@@ -1,6 +1,11 @@
 Mifos Offline
 =============
 
+Screenshots
+
+---------------------------
+https://docs.google.com/viewer?a=v&pid=explorer&chrome=true&srcid=0B9dBOJINVE7XNGQwN2Y2YjgtYjZkMi00YzhmLTg2MGMtZmQ4MDBmN2Q5ZmE3&hl=en
+
 GUI
 -----------
 ### XUL
